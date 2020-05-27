@@ -1,0 +1,852 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="1170"
+   height="2256.1243"
+   viewBox="0 0 309.56249 596.93288"
+   version="1.1"
+   id="svg167842"
+   sodipodi:docname="oyster_contact.svg"
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)">
+  <defs
+     id="defs167836">
+    <inkscape:path-effect
+       effect="simplify"
+       id="path-effect86284"
+       is_visible="true"
+       steps="1"
+       threshold="0.0001"
+       smooth_angles="360"
+       helper_size="0"
+       simplify_individual_paths="false"
+       simplify_just_coalesce="false"
+       simplifyindividualpaths="false"
+       simplifyJustCoalesce="false" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="2.9199591"
+     inkscape:cx="176.8115"
+     inkscape:cy="2172.9878"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer2"
+     showgrid="false"
+     units="px"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     inkscape:snap-bbox="true"
+     inkscape:bbox-paths="true"
+     inkscape:bbox-nodes="true"
+     inkscape:snap-bbox-edge-midpoints="true"
+     inkscape:snap-bbox-midpoints="false"
+     inkscape:object-paths="true"
+     inkscape:snap-intersection-paths="true"
+     inkscape:snap-smooth-nodes="true"
+     inkscape:snap-midpoints="true"
+     inkscape:snap-object-midpoints="true"
+     inkscape:snap-center="true"
+     inkscape:snap-text-baseline="true"
+     inkscape:snap-page="true"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" />
+  <metadata
+     id="metadata167839">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="bg"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(2.4999999e-6,1401.625)"
+     style="display:inline"
+     sodipodi:insensitive="true">
+    <image
+       sodipodi:absref="/home/an/2020-02-16-192741_1920x1080_scrot.png"
+       y="-1420.7147"
+       x="310.28119"
+       id="image251659"
+       xlink:href="file:///home/an/2020-02-16-192741_1920x1080_scrot.png"
+       preserveAspectRatio="none"
+       height="285.75"
+       width="508" />
+    <image
+       sodipodi:absref="I:\software_tutorial\inkscape\web\oyster\img/Lake-Rajada-Office-Complex2.jpg"
+       xlink:href="img/Lake-Rajada-Office-Complex2.jpg"
+       y="-1401.625"
+       x="0"
+       id="image83632"
+       preserveAspectRatio="none"
+       height="126.99999"
+       width="309.5625"
+       style="stroke-width:1.33333337" />
+    <image
+       sodipodi:absref="/home/an/2020-02-16-204156_1920x1080_scrot.png"
+       y="-1251.9551"
+       x="310.2258"
+       id="image83758"
+       xlink:href="file:///home/an/2020-02-16-204156_1920x1080_scrot.png"
+       preserveAspectRatio="none"
+       height="285.75"
+       width="508"
+       style="opacity:1" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer5"
+     inkscape:label="mask"
+     style="display:inline;opacity:1"
+     transform="translate(2.4999999e-6)"
+     sodipodi:insensitive="true">
+    <rect
+       style="display:inline;opacity:0.65;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.79374999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect83622"
+       width="309.5625"
+       height="126.8167"
+       x="-2.4999999e-06"
+       y="5.6199766e-13" />
+    <rect
+       style="opacity:1;vector-effect:none;fill:#2ca7ca;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.79375005;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect83761"
+       width="309.5625"
+       height="227.0125"
+       x="-2.4999999e-06"
+       y="206.67245" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="logo"
+     style="display:inline"
+     transform="translate(2.4999999e-6)">
+    <image
+       sodipodi:absref="I:\software_tutorial\inkscape\web\oyster\img/home/logo.png"
+       xlink:href="img/home/logo.png"
+       y="-1393.5231"
+       x="6.3500123"
+       id="image83923"
+       preserveAspectRatio="none"
+       height="15.445946"
+       width="47.625"
+       style="display:inline;stroke-width:2.05555558"
+       transform="translate(0,1401.625)"
+       onclick="window.location = &quot;oyster_home.svg&quot;" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer3"
+     inkscape:label="text"
+     style="display:inline"
+     transform="translate(2.4999999e-6)"
+     sodipodi:insensitive="true">
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:3.91365647px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="35.870914"
+       y="71.065536"
+       id="text251665"><tspan
+         sodipodi:role="line"
+         id="tspan251663"
+         x="35.870914"
+         y="71.065536"
+         style="font-weight:bold;font-size:15.65462589px;fill:#ffffff;stroke-width:0.26458332">WE'D LOVE TO HEAR FROM YOU</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:5.99906158px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="93.893349"
+       y="97.347473"
+       id="text251669"><tspan
+         sodipodi:role="line"
+         id="tspan251667"
+         x="93.893349"
+         y="97.347473"
+         style="fill:#ffffff;stroke-width:0.26458332">Please use the details below to get in touch.</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:3.46119928px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#999999;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="39.60392"
+       y="172.05293"
+       id="text84442"><tspan
+         sodipodi:role="line"
+         id="tspan84440"
+         x="39.60392"
+         y="172.05293"
+         style="font-size:3.52777767px;line-height:1.75;text-align:center;text-anchor:middle;fill:#999999;stroke-width:0.26458332">+44 (0)1243 389713</tspan><tspan
+         sodipodi:role="line"
+         x="39.60392"
+         y="178.22655"
+         style="font-size:3.52777767px;line-height:1.75;text-align:center;text-anchor:middle;fill:#999999;stroke-width:0.26458332"
+         id="tspan84444">hello@oysterdesign.co.uk</tspan></text>
+    <text
+       id="text84405"
+       y="159.91121"
+       x="15.712781"
+       style="font-style:normal;font-weight:normal;font-size:2.0817368px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#34454e;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       xml:space="preserve"><tspan
+         style="font-weight:bold;font-size:6.07438231px;line-height:1.5;fill:#34454e;fill-opacity:1;stroke-width:0.26458332"
+         y="159.91121"
+         x="15.712781"
+         sodipodi:role="line"
+         id="tspan84411">CALL / EMAIL US</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:2.0817368px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#34454e;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="97.204239"
+       y="160.26352"
+       id="text83675"><tspan
+         id="tspan83673"
+         sodipodi:role="line"
+         x="97.204239"
+         y="160.26352"
+         style="font-weight:bold;font-size:6.07438231px;line-height:1.5;fill:#34454e;fill-opacity:1;stroke-width:0.26458332">OFFICE HOURS</tspan></text>
+    <text
+       id="text83679"
+       y="160.26352"
+       x="183.98787"
+       style="font-style:normal;font-weight:normal;font-size:2.0817368px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#34454e;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       xml:space="preserve"><tspan
+         style="font-weight:bold;font-size:6.07438231px;line-height:1.5;fill:#34454e;fill-opacity:1;stroke-width:0.26458332"
+         y="160.26352"
+         x="183.98787"
+         sodipodi:role="line"
+         id="tspan83677">LOCATION</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:2.0817368px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#34454e;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="264.76147"
+       y="160.26352"
+       id="text83683"><tspan
+         id="tspan83681"
+         sodipodi:role="line"
+         x="264.76147"
+         y="160.26352"
+         style="font-weight:bold;font-size:6.07438231px;line-height:1.5;fill:#34454e;fill-opacity:1;stroke-width:0.26458332">CONNECT</tspan></text>
+    <text
+       id="text83689"
+       y="171.97533"
+       x="119.37177"
+       style="font-style:normal;font-weight:normal;font-size:3.46119928px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#999999;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       xml:space="preserve"><tspan
+         id="tspan83687"
+         style="font-size:3.52777767px;line-height:1.75;text-align:center;text-anchor:middle;fill:#999999;stroke-width:0.26458332"
+         y="171.97533"
+         x="119.37177"
+         sodipodi:role="line">Monday–Friday</tspan><tspan
+         style="font-size:3.52777767px;line-height:1.75;text-align:center;text-anchor:middle;fill:#999999;stroke-width:0.26458332"
+         y="178.14894"
+         x="119.37177"
+         sodipodi:role="line"
+         id="tspan83693">8:30–17:30</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:3.46119928px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#999999;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="199.05493"
+       y="171.97533"
+       id="text83699"><tspan
+         sodipodi:role="line"
+         x="199.05493"
+         y="171.97533"
+         style="font-size:3.52777767px;line-height:1.75;text-align:center;text-anchor:middle;fill:#999999;stroke-width:0.26458332"
+         id="tspan83695">12A North Street</tspan><tspan
+         sodipodi:role="line"
+         x="199.05493"
+         y="178.14894"
+         style="font-size:3.52777767px;line-height:1.75;text-align:center;text-anchor:middle;fill:#999999;stroke-width:0.26458332"
+         id="tspan83701">Emsworth</tspan><tspan
+         sodipodi:role="line"
+         x="199.05493"
+         y="184.32256"
+         style="font-size:3.52777767px;line-height:1.75;text-align:center;text-anchor:middle;fill:#999999;stroke-width:0.26458332"
+         id="tspan83703">Hampshire</tspan><tspan
+         id="tspan83697"
+         sodipodi:role="line"
+         x="199.05493"
+         y="190.49615"
+         style="font-size:3.52777767px;line-height:1.75;text-align:center;text-anchor:middle;fill:#999999;stroke-width:0.26458332">PO10 7DQ</tspan></text>
+    <text
+       id="text83717"
+       y="171.97533"
+       x="279.27875"
+       style="font-style:normal;font-weight:normal;font-size:3.46119928px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#999999;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       xml:space="preserve"><tspan
+         id="tspan83709"
+         style="font-size:3.52777767px;line-height:1.75;text-align:center;text-anchor:middle;fill:#999999;stroke-width:0.26458332"
+         y="171.97533"
+         x="279.27875"
+         sodipodi:role="line">Facebook</tspan><tspan
+         style="font-size:3.52777767px;line-height:1.75;text-align:center;text-anchor:middle;fill:#999999;stroke-width:0.26458332"
+         y="178.14894"
+         x="279.27875"
+         sodipodi:role="line"
+         id="tspan83719">Twitter</tspan><tspan
+         style="font-size:3.52777767px;line-height:1.75;text-align:center;text-anchor:middle;fill:#999999;stroke-width:0.26458332"
+         y="184.32256"
+         x="279.27875"
+         sodipodi:role="line"
+         id="tspan83715">Instagram</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:1.88823128px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;opacity:1;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.26458329"
+       x="125.98459"
+       y="225.73199"
+       id="text83765"><tspan
+         sodipodi:role="line"
+         id="tspan83763"
+         x="125.98459"
+         y="225.73199"
+         style="font-weight:bold;font-size:6.2941041px;fill:#ffffff;stroke-width:0.26458329">SEND US AN EMAIL</tspan></text>
+    <text
+       id="text83783"
+       y="252.07768"
+       x="44.604515"
+       style="font-style:normal;font-weight:normal;font-size:1.11141121px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;opacity:1;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       xml:space="preserve"><tspan
+         style="font-weight:bold;font-size:3.70470405px;fill:#ffffff;stroke-width:0.26458332"
+         y="252.07768"
+         x="44.604515"
+         id="tspan83781"
+         sodipodi:role="line">YOUR NAME *</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:1.11141121px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;opacity:1;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="44.604515"
+       y="275.35239"
+       id="text83787"><tspan
+         sodipodi:role="line"
+         id="tspan83785"
+         x="44.604515"
+         y="275.35239"
+         style="font-weight:bold;font-size:3.70470405px;fill:#ffffff;stroke-width:0.26458332">YOUR EMAIL *</tspan></text>
+    <text
+       id="text83791"
+       y="298.52707"
+       x="44.382233"
+       style="font-style:normal;font-weight:normal;font-size:1.11141121px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;opacity:1;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       xml:space="preserve"><tspan
+         style="font-weight:bold;font-size:3.70470405px;fill:#ffffff;stroke-width:0.26458332"
+         y="298.52707"
+         x="44.382233"
+         id="tspan83789"
+         sodipodi:role="line">COMPANY</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:1.11141121px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;opacity:1;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="44.245159"
+       y="321.80194"
+       id="text83795"><tspan
+         sodipodi:role="line"
+         id="tspan83793"
+         x="44.245159"
+         y="321.80194"
+         style="font-weight:bold;font-size:3.70470405px;fill:#ffffff;stroke-width:0.26458332">PHONE NUMBER</tspan></text>
+    <text
+       id="text83799"
+       y="345.17679"
+       x="44.245159"
+       style="font-style:normal;font-weight:normal;font-size:1.11141121px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;opacity:1;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       xml:space="preserve"><tspan
+         style="font-weight:bold;font-size:3.70470405px;fill:#ffffff;stroke-width:0.26458332"
+         y="345.17679"
+         x="44.245159"
+         id="tspan83797"
+         sodipodi:role="line">MESSAGE *</tspan></text>
+    <text
+       id="text83805"
+       y="397.11359"
+       x="57.474327"
+       style="font-style:normal;font-weight:normal;font-size:1.11141121px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;opacity:1;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       xml:space="preserve"><tspan
+         style="font-weight:bold;font-size:3.70470405px;fill:#ffffff;stroke-width:0.26458332"
+         y="397.11359"
+         x="57.474327"
+         id="tspan83803"
+         sodipodi:role="line">I HAVE READ AND UNDERSTOOD THE TERMS AND CONDITIONS AND PRIVACY POLICY.</tspan></text>
+    <g
+       id="g83837"
+       transform="translate(-239.20084)">
+      <rect
+         style="opacity:1;vector-effect:none;fill:#2ca7ca;fill-opacity:1;fill-rule:nonzero;stroke:#ffffff;stroke-width:0.26458329;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         id="rect84479"
+         width="31.509756"
+         height="12.435416"
+         x="472.539"
+         y="405.18393" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:3.70546865px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+         x="478.00583"
+         y="412.73087"
+         id="text84483"><tspan
+           sodipodi:role="line"
+           id="tspan84481"
+           x="478.00583"
+           y="412.73087"
+           style="font-weight:normal;font-size:3.62184739px;fill:#ffffff;fill-opacity:1;stroke-width:0.26458332">SEND EMAIL</tspan></text>
+    </g>
+    <g
+       id="g84099"
+       transform="translate(0,-1101.6921)">
+      <rect
+         style="display:inline;opacity:1;vector-effect:none;fill:#34454e;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.79374987;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         id="rect84506"
+         width="309.5625"
+         height="140.7583"
+         x="-7.6317411e-14"
+         y="1535.3771" />
+      <text
+         id="text84524"
+         y="1569.9948"
+         x="7.5609751"
+         style="font-style:normal;font-weight:normal;font-size:2.26370811px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#34454e;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+         xml:space="preserve"><tspan
+           style="font-size:3.35138893px;line-height:1.89999998;fill:#999999;fill-opacity:1;stroke-width:0.26458332"
+           y="1569.9948"
+           x="7.5609751"
+           sodipodi:role="line"
+           id="tspan84522">We’d love the opportunity to discuss your next project with you. </tspan><tspan
+           id="tspan84569"
+           style="font-size:3.35138893px;line-height:1.89999998;fill:#999999;fill-opacity:1;stroke-width:0.26458332"
+           y="1576.3624"
+           x="7.5609751"
+           sodipodi:role="line">Feel free to call our studio for an informal discussion or to </tspan><tspan
+           id="tspan84571"
+           style="font-size:3.35138893px;line-height:1.89999998;fill:#999999;fill-opacity:1;stroke-width:0.26458332"
+           y="1582.73"
+           x="7.5609751"
+           sodipodi:role="line">arrange a meeting with a member of our team. If you'd like to </tspan><tspan
+           id="tspan84573"
+           style="font-size:3.35138893px;line-height:1.89999998;fill:#999999;fill-opacity:1;stroke-width:0.26458332"
+           y="1589.0977"
+           x="7.5609751"
+           sodipodi:role="line">drop in, we're based in Emsworth, a pretty coastal village </tspan><tspan
+           id="tspan84575"
+           style="font-size:3.35138893px;line-height:1.89999998;fill:#999999;fill-opacity:1;stroke-width:0.26458332"
+           y="1595.4653"
+           x="7.5609751"
+           sodipodi:role="line">on Chichester Harbour, on the Hampshire and West Sussex </tspan><tspan
+           id="tspan84577"
+           style="font-size:3.35138893px;line-height:1.89999998;fill:#999999;fill-opacity:1;stroke-width:0.26458332"
+           y="1601.8329"
+           x="7.5609751"
+           sodipodi:role="line">border. Alternatively send your brief or tender documents via </tspan><tspan
+           id="tspan84579"
+           style="font-size:3.35138893px;line-height:1.89999998;fill:#999999;fill-opacity:1;stroke-width:0.26458332"
+           y="1608.2006"
+           x="7.5609751"
+           sodipodi:role="line">our contact form.</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:1.59489608px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+         x="7.2147241"
+         y="1559.7812"
+         id="text84530"><tspan
+           sodipodi:role="line"
+           x="7.2147241"
+           y="1559.7812"
+           style="font-weight:bold;font-size:4.76249981px;line-height:1.75;fill:#ffffff;fill-opacity:1;stroke-width:0.26458332"
+           id="tspan84528">LEARN MORE</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:2.26370811px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#34454e;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+         x="114.35356"
+         y="1569.8809"
+         id="text84595"><tspan
+           sodipodi:role="line"
+           x="114.35356"
+           y="1569.8809"
+           style="font-size:3.35138893px;line-height:1.89999998;fill:#999999;fill-opacity:1;stroke-width:0.26458332"
+           id="tspan84593">As they say, the proof is in the pudding. You can see our latest </tspan><tspan
+           id="tspan84628"
+           sodipodi:role="line"
+           x="114.35356"
+           y="1576.2485"
+           style="font-size:3.35138893px;line-height:1.89999998;fill:#999999;fill-opacity:1;stroke-width:0.26458332">client list and a broad selection of our work in our portfolio. If </tspan><tspan
+           id="tspan84630"
+           sodipodi:role="line"
+           x="114.35356"
+           y="1582.6161"
+           style="font-size:3.35138893px;line-height:1.89999998;fill:#999999;fill-opacity:1;stroke-width:0.26458332">you need any further information please get in touch.</tspan></text>
+      <text
+         id="text84599"
+         y="1559.7812"
+         x="114.10644"
+         style="font-style:normal;font-weight:normal;font-size:1.59489608px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+         xml:space="preserve"><tspan
+           id="tspan84597"
+           style="font-weight:bold;font-size:4.76249981px;line-height:1.75;fill:#ffffff;fill-opacity:1;stroke-width:0.26458332"
+           y="1559.7812"
+           x="114.10644"
+           sodipodi:role="line">OUR WORK</tspan></text>
+      <text
+         id="text84638"
+         y="1569.8373"
+         x="220.72614"
+         style="font-style:normal;font-weight:normal;font-size:2.26370811px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#34454e;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+         xml:space="preserve"><tspan
+           style="font-size:3.35138893px;line-height:1.89999998;fill:#999999;fill-opacity:1;stroke-width:0.26458332"
+           y="1569.8373"
+           x="220.72614"
+           sodipodi:role="line"
+           id="tspan84636">Oyster Marketing and Design Ltd</tspan><tspan
+           id="tspan84649"
+           style="font-size:3.35138893px;line-height:1.89999998;fill:#999999;fill-opacity:1;stroke-width:0.26458332"
+           y="1576.205"
+           x="220.72614"
+           sodipodi:role="line">12a North Street, Emsworth</tspan><tspan
+           id="tspan84651"
+           style="font-size:3.35138893px;line-height:1.89999998;fill:#999999;fill-opacity:1;stroke-width:0.26458332"
+           y="1582.5725"
+           x="220.72614"
+           sodipodi:role="line">Hampshire PO10 7DQ</tspan><tspan
+           id="tspan84653"
+           style="font-size:3.35138893px;line-height:1.89999998;fill:#999999;fill-opacity:1;stroke-width:0.26458332"
+           y="1586.7579"
+           x="220.72614"
+           sodipodi:role="line" /><tspan
+           id="tspan84655"
+           style="font-size:3.35138893px;line-height:1.89999998;fill:#999999;fill-opacity:1;stroke-width:0.26458332"
+           y="1589.5875"
+           x="220.72614"
+           sodipodi:role="line" /><tspan
+           id="tspan84657"
+           style="font-size:3.35138893px;line-height:1.89999998;fill:#999999;fill-opacity:1;stroke-width:0.26458332"
+           y="1594.5995"
+           x="220.72614"
+           sodipodi:role="line">+44 (0)1243 389713</tspan><tspan
+           id="tspan84659"
+           style="font-size:3.35138893px;line-height:1.89999998;fill:#999999;fill-opacity:1;stroke-width:0.26458332"
+           y="1600.9672"
+           x="220.72614"
+           sodipodi:role="line">hello@oysterdesign.co.uk</tspan><tspan
+           id="tspan84663"
+           style="font-size:3.35138893px;line-height:1.89999998;fill:#999999;fill-opacity:1;stroke-width:0.26458332"
+           y="1607.3347"
+           x="220.72614"
+           sodipodi:role="line"> </tspan><tspan
+           id="tspan84667"
+           style="font-size:3.35138893px;line-height:1.89999998;fill:#999999;fill-opacity:1;stroke-width:0.26458332"
+           y="1613.7024"
+           x="220.72614"
+           sodipodi:role="line">Proud to be an Emsworth business.</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:1.59489608px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+         x="220.46896"
+         y="1559.7812"
+         id="text84642"><tspan
+           sodipodi:role="line"
+           x="220.46896"
+           y="1559.7812"
+           style="font-weight:bold;font-size:4.76249981px;line-height:1.75;fill:#ffffff;fill-opacity:1;stroke-width:0.26458332"
+           id="tspan84640">CONNECT WITH US</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:2.26370811px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#34454e;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+         x="7.5609751"
+         y="1641.1046"
+         id="text84062"><tspan
+           sodipodi:role="line"
+           x="7.5609751"
+           y="1641.1046"
+           style="font-size:3.35138893px;line-height:1.89999998;fill:#999999;fill-opacity:1;stroke-width:0.26458332"
+           id="tspan84060">Website Design Chichester, Website Design Hampshire</tspan><tspan
+           id="tspan84099"
+           sodipodi:role="line"
+           x="7.5609751"
+           y="1647.4723"
+           style="font-size:3.35138893px;line-height:1.89999998;fill:#999999;fill-opacity:1;stroke-width:0.26458332">Developers of Plot One CRM - the Homebuilders and </tspan><tspan
+           id="tspan84101"
+           sodipodi:role="line"
+           x="7.5609751"
+           y="1653.8398"
+           style="font-size:3.35138893px;line-height:1.89999998;fill:#999999;fill-opacity:1;stroke-width:0.26458332">developers CRM system </tspan></text>
+      <text
+         id="text84066"
+         y="1624.8323"
+         x="7.3174562"
+         style="font-style:normal;font-weight:normal;font-size:1.2168349px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#2ca7ca;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+         xml:space="preserve"><tspan
+           id="tspan84064"
+           style="font-weight:bold;font-size:3.63357544px;line-height:1.75;fill:#2ca7ca;fill-opacity:1;stroke-width:0.26458332"
+           y="1624.8323"
+           x="7.3174562"
+           sodipodi:role="line">BRIEF OYSTER</tspan></text>
+      <text
+         id="text84111"
+         y="1609.675"
+         x="114.36028"
+         style="font-style:normal;font-weight:normal;font-size:2.26370811px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#34454e;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+         xml:space="preserve"><tspan
+           id="tspan84105"
+           style="font-size:3.35138893px;line-height:1.89999998;fill:#999999;fill-opacity:1;stroke-width:0.26458332"
+           y="1609.675"
+           x="114.36028"
+           sodipodi:role="line">View our work for charities</tspan><tspan
+           id="tspan84119"
+           style="font-size:3.35138893px;line-height:1.89999998;fill:#999999;fill-opacity:1;stroke-width:0.26458332"
+           y="1616.0427"
+           x="114.36028"
+           sodipodi:role="line">View our work for schools</tspan><tspan
+           id="tspan84123"
+           style="font-size:3.35138893px;line-height:1.89999998;fill:#999999;fill-opacity:1;stroke-width:0.26458332"
+           y="1622.4103"
+           x="114.36028"
+           sodipodi:role="line">Charity web design</tspan><tspan
+           style="font-size:3.35138893px;line-height:1.89999998;fill:#999999;fill-opacity:1;stroke-width:0.26458332"
+           y="1628.778"
+           x="114.36028"
+           sodipodi:role="line"
+           id="tspan84109">School web design </tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:1.2168349px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#2ca7ca;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+         x="114.38178"
+         y="1599.2236"
+         id="text84115"><tspan
+           sodipodi:role="line"
+           x="114.38178"
+           y="1599.2236"
+           style="font-weight:bold;font-size:3.63357544px;line-height:1.75;fill:#2ca7ca;fill-opacity:1;stroke-width:0.26458332"
+           id="tspan84113">VIEW ALL OUR WORK</tspan></text>
+      <g
+         transform="matrix(0.26458333,0,0,0.26458333,235.35684,1627.1602)"
+         style="fill:#2ca7ca;fill-opacity:1;stroke:none;stroke-width:0.26458335"
+         id="use84407">
+        <title
+           id="title83974">LinkedIn (circle)</title>
+        <path
+           style="stroke-width:0.26458335"
+           d="m 10,0.4 c -5.302,0 -9.6,4.298 -9.6,9.6 0,5.302 4.298,9.6 9.6,9.6 5.302,0 9.6,-4.298 9.6,-9.6 C 19.6,4.698 15.302,0.4 10,0.4 Z M 7.65,13.979 H 5.706 V 7.723 H 7.65 Z M 6.666,6.955 c -0.614,0 -1.011,-0.435 -1.011,-0.973 0,-0.549 0.409,-0.971 1.036,-0.971 0.627,0 1.011,0.422 1.023,0.971 0,0.538 -0.396,0.973 -1.048,0.973 z m 8.084,7.024 h -1.944 v -3.467 c 0,-0.807 -0.282,-1.355 -0.985,-1.355 -0.537,0 -0.856,0.371 -0.997,0.728 -0.052,0.127 -0.065,0.307 -0.065,0.486 v 3.607 H 8.814 V 9.718 C 8.814,8.937 8.789,8.284 8.763,7.722 h 1.689 l 0.089,0.869 h 0.039 c 0.256,-0.408 0.883,-1.01 1.932,-1.01 1.279,0 2.238,0.857 2.238,2.699 z"
+           id="path83976"
+           inkscape:connector-curvature="0" />
+      </g>
+      <g
+         transform="matrix(0.26458333,0,0,0.26458333,248.43927,1627.1602)"
+         style="fill:#2ca7ca;fill-opacity:1;stroke:none;stroke-width:0.26458335"
+         id="use84445">
+        <title
+           id="title83980">Facebook</title>
+        <path
+           style="stroke-width:0.26458335"
+           d="M 17,1 H 3 C 1.9,1 1,1.9 1,3 v 14 c 0,1.101 0.9,2 2,2 h 7 V 12 H 8 V 9.525 h 2 v -2.05 c 0,-2.164 1.212,-3.684 3.766,-3.684 l 1.803,0.002 V 6.398 H 14.372 C 13.378,6.398 13,7.144 13,7.836 v 1.69 h 2.568 L 15,12 h -2 v 7 h 4 c 1.1,0 2,-0.899 2,-2 V 3 C 19,1.9 18.1,1 17,1 Z"
+           id="path83982"
+           inkscape:connector-curvature="0" />
+      </g>
+      <g
+         transform="matrix(0.26458333,0,0,0.26458333,261.67739,1627.1602)"
+         style="fill:#2ca7ca;fill-opacity:1;stroke:none;stroke-width:0.26458335"
+         id="use84483">
+        <title
+           id="title83986">Twitter</title>
+        <path
+           style="stroke-width:0.26458335"
+           d="m 17.316,6.246 c 0.008,0.162 0.011,0.326 0.011,0.488 0,4.99 -3.797,10.742 -10.74,10.742 -2.133,0 -4.116,-0.625 -5.787,-1.697 0.296,0.035 0.596,0.053 0.9,0.053 1.77,0 3.397,-0.604 4.688,-1.615 -1.651,-0.031 -3.046,-1.121 -3.526,-2.621 0.23,0.043 0.467,0.066 0.71,0.066 0.345,0 0.679,-0.045 0.995,-0.131 C 2.84,11.183 1.539,9.658 1.539,7.828 c 0,-0.016 0,-0.031 0,-0.047 0.509,0.283 1.092,0.453 1.71,0.473 C 2.236,7.576 1.569,6.422 1.569,5.111 1.569,4.42 1.755,3.771 2.081,3.213 3.942,5.498 6.725,7 9.862,7.158 9.798,6.881 9.765,6.594 9.765,6.297 c 0,-2.084 1.689,-3.773 3.774,-3.773 1.086,0 2.067,0.457 2.756,1.191 0.859,-0.17 1.667,-0.484 2.397,-0.916 C 18.41,3.68 17.811,4.42 17.032,4.887 17.796,4.795 18.522,4.594 19.2,4.293 18.694,5.051 18.054,5.715 17.316,6.246 Z"
+           id="path83988"
+           inkscape:connector-curvature="0" />
+      </g>
+      <g
+         transform="matrix(0.26458333,0,0,0.26458333,274.87667,1627.1602)"
+         style="fill:#2ca7ca;fill-opacity:1;stroke:none;stroke-width:0.26458335"
+         id="use84508">
+        <title
+           id="title83992">Picasa</title>
+        <path
+           style="stroke-width:0.26458335"
+           d="M 5.808,1.823 C 2.719,3.411 0.8,6.544 0.8,10.021 c 0,0.633 0.08,1.275 0.221,1.918 L 8.97,4.7 C 8.122,3.929 5.894,1.901 5.808,1.823 Z M 13.793,1.626 C 12.593,1.081 11.317,0.8 9.999,0.8 9.065,0.8 8.144,0.956 7.25,1.241 l 6.543,5.951 z m 1.399,0.812 v 10.617 h 3.485 C 19.02,12.073 19.199,11.051 19.199,10.02 19.2,6.987 17.677,4.148 15.192,2.438 Z M 1.463,13.429 c 0.674,1.693 1.857,3.15 3.368,4.184 v -7.25 l -2.045,1.861 c -0.698,0.634 -1.28,1.166 -1.323,1.205 z m 4.767,4.996 c 0.935,0.422 1.913,0.682 2.92,0.775 h 1.689 c 3.019,-0.281 5.727,-2.068 7.199,-4.744 H 6.23 Z"
+           id="path83994"
+           inkscape:connector-curvature="0" />
+      </g>
+      <g
+         transform="matrix(0.00488462,0,0,0.00488462,222.02375,1613.931)"
+         style="fill:#2ca7ca;fill-opacity:1;stroke:none;stroke-width:14.33159542"
+         id="use84685">
+        <path
+           d="M 12,2 C 8.13,2 5,5.13 5,9 c 0,5.25 7,13 7,13 0,0 7,-7.75 7,-13 0,-3.87 -3.13,-7 -7,-7 z m 0,9.5 a 2.5,2.5 0 0 1 0,-5 2.5,2.5 0 0 1 0,5 z"
+           id="path83998"
+           inkscape:connector-curvature="0" />
+      </g>
+      <rect
+         y="1676.1354"
+         x="-2.4999999e-06"
+         height="22.489582"
+         width="309.5625"
+         id="rect84708"
+         style="display:inline;opacity:1;vector-effect:none;fill:#2b3941;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.79374993;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <text
+         id="text84717"
+         y="1688.3433"
+         x="7.4540834"
+         style="font-style:normal;font-weight:normal;font-size:2.11666656px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#4e6774;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+         xml:space="preserve"><tspan
+           style="font-size:3.52777767px;fill:#4e6774;fill-opacity:1;stroke-width:0.26458332"
+           y="1688.3433"
+           x="7.4540834"
+           id="tspan84715"
+           sodipodi:role="line">© 2019 Oyster Marketing &amp; Design, Hampshire. All rights reserved.</tspan></text>
+      <g
+         transform="matrix(0.00405473,0,0,0.00405473,122.725,1674.3645)"
+         style="fill:#4e6774;fill-opacity:1;stroke:none;stroke-width:17.26486206"
+         id="use86266">
+        <path
+           d="m 12,12 c 2.21,0 4,-1.79 4,-4 C 16,5.79 14.21,4 12,4 9.79,4 8,5.79 8,8 c 0,2.21 1.79,4 4,4 z m 0,2 c -2.67,0 -8,1.34 -8,4 v 2 h 16 v -2 c 0,-2.66 -5.33,-4 -8,-4 z"
+           id="path84002"
+           inkscape:connector-curvature="0" />
+      </g>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:2.11666656px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#4e6774;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+         x="128.63327"
+         y="1688.3433"
+         id="text86280"><tspan
+           sodipodi:role="line"
+           id="tspan86278"
+           x="128.63327"
+           y="1688.3433"
+           style="font-size:3.52777767px;fill:#4e6774;fill-opacity:1;stroke-width:0.26458332">Client Login</tspan></text>
+      <path
+         transform="translate(-394.22935,0.56167441)"
+         inkscape:original-d="m 513.46072,1683.6891 v 6.2589"
+         inkscape:path-effect="#path-effect86284"
+         inkscape:connector-curvature="0"
+         id="path86282"
+         d="m 513.46072,1683.6891 c 0,2.0863 0,4.1726 0,6.2589"
+         style="display:inline;fill:none;stroke:#4e6774;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <g
+         transform="matrix(0.01314057,0,0,0.01314057,270.87996,1669.226)"
+         style="fill:#2ca7ca;fill-opacity:1;stroke:none;stroke-width:5.32734442"
+         id="use86813">
+        <title
+           id="title84006">arrow-up-alt1</title>
+        <path
+           d="m 512,1024 c 282.752,0 512,-229.248 512,-512 C 1024,229.216 794.752,0 512,0 229.216,0 0,229.216 0,512 c 0,282.752 229.216,512 512,512 z m 0,-768 256,256 H 576 V 768 H 448 V 512 H 256 Z"
+           id="path84008"
+           inkscape:connector-curvature="0" />
+      </g>
+      <g
+         transform="matrix(0.1984375,0,0,0.1984375,122.50742,1684.9989)"
+         style="fill:#4e6774;fill-opacity:1;stroke:none;stroke-width:0.3527776"
+         id="use86266-3">
+        <path
+           style="stroke-width:0.3527776"
+           d="m 12,12 c 2.21,0 4,-1.79 4,-4 C 16,5.79 14.21,4 12,4 9.79,4 8,5.79 8,8 c 0,2.21 1.79,4 4,4 z m 0,2 c -2.67,0 -8,1.34 -8,4 v 2 h 16 v -2 c 0,-2.66 -5.33,-4 -8,-4 z"
+           id="path84026"
+           inkscape:connector-curvature="0" />
+      </g>
+    </g>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer4"
+     inkscape:label="nav"
+     style="display:inline"
+     sodipodi:insensitive="true"
+     transform="translate(2.4999999e-6)">
+    <rect
+       style="display:inline;opacity:1;vector-effect:none;fill:#2e5f9a;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.79374999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect208685"
+       width="4.8115759"
+       height="4.8115759"
+       x="299.46951"
+       y="11.121125"
+       onmouseover=";InkWeb.setAtt({el:['use208671'], att:'fill', val:'RGB(44,167,202)'});InkWeb.setAtt({el:['use208671'], att:'cursor', val:'pointer'})"
+       onmouseout=";InkWeb.setAtt({el:['use208671'], att:'fill', val:'black'})"
+       onclick="window.location = &quot;oyster_nav.svg&quot;" />
+    <text
+       id="text_contact"
+       y="14.962719"
+       x="272.36823"
+       style="font-style:normal;font-weight:400;font-size:0.60891104px;line-height:1.25;font-family:sans-serif;letter-spacing:0;word-spacing:0;display:inline;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       xml:space="preserve"
+       onmouseover=";InkWeb.setAtt({el:['text_contact'], att:'color', val:'blue'})">          <tspan
+   style="font-weight:700;font-size:3.88055563px;fill:#ffffff;fill-opacity:1;stroke-width:0.26458332"
+   y="14.962719"
+   x="272.36823"
+   id="tspan928"
+   sodipodi:role="line">CONTACT</tspan>      </text>
+    <g
+       id="use208671"
+       style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.21106355"
+       transform="matrix(0.3316741,0,0,0.3316741,298.55856,10.210172)"
+       onclick="window.location = &quot;oyster_nav.svg&quot;">
+      <title
+         id="title251793">
+            menu
+         </title>
+      <path
+         inkscape:connector-curvature="0"
+         id="path251795"
+         d="M 3,4 H 17 V 6 H 3 Z m 0,5 h 14 v 2 H 3 Z m 0,5 h 14 v 2 H 3 Z"
+         style="stroke-width:0.21106355" />
+    </g>
+  </g>
+  <rect
+     style="opacity:1;vector-effect:none;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.79374999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+     id="rect83769"
+     width="220.39792"
+     height="9.5249996"
+     x="44.582291"
+     y="254.20787" />
+  <rect
+     y="277.48267"
+     x="44.582291"
+     height="9.5249996"
+     width="220.39792"
+     id="rect83771"
+     style="opacity:1;vector-effect:none;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.79374999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+  <rect
+     style="opacity:1;vector-effect:none;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.79374999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+     id="rect83773"
+     width="220.39792"
+     height="9.5249996"
+     x="44.582291"
+     y="300.75748" />
+  <rect
+     y="324.03229"
+     x="44.582291"
+     height="9.5249996"
+     width="220.39792"
+     id="rect83775"
+     style="opacity:1;vector-effect:none;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.79374999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+  <rect
+     style="opacity:1;vector-effect:none;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.79374999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+     id="rect83777"
+     width="220.39792"
+     height="37.041664"
+     x="44.582291"
+     y="347.3071" />
+  <rect
+     style="opacity:1;vector-effect:none;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.79374999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+     id="rect83779"
+     width="7.9374995"
+     height="7.9375"
+     x="44.582291"
+     y="391.77411" />
+</svg>
