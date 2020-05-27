@@ -1,0 +1,609 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="1170"
+   height="1420"
+   viewBox="0 0 309.5625 375.70834"
+   version="1.1"
+   id="svg86968"
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
+   sodipodi:docname="oyster_nav.svg">
+  <script
+     type="text/javascript"
+     id="inkwebjs"><![CDATA[
+/* inkweb.js - InkWebEffect:AutoUpdate */
+/*
+**  InkWeb - Inkscape's Javscript features for the open vector web
+**
+**  Copyright (C) 2009 Aurelio A. Heckert, aurium (a) gmail dot com
+**
+**  ********* Bugs and New Fetures *************************************
+**   If you found any bug on this script or if you want to propose a
+**   new feature, please report it in the inkscape bug traker
+**   https://bugs.launchpad.net/inkscape/+filebug
+**   and assign that to Aurium.
+**  ********************************************************************
+**
+**  This program is free software: you can redistribute it and/or modify
+**  it under the terms of the GNU Lesser General Public License as published
+**  by the Free Software Foundation, either version 3 of the License, or
+**  (at your option) any later version.
+**
+**  This program is distributed in the hope that it will be useful,
+**  but WITHOUT ANY WARRANTY; without even the implied warranty of
+**  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+**  GNU Lesser General Public License for more details.
+**
+**  You should have received a copy of the GNU Lesser General Public License
+**  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+*/
+
+var InkWeb = {
+
+  version: 0.04,
+
+  NS: {
+    svg:      "http://www.w3.org/2000/svg",
+    sodipodi: "http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd",
+    inkscape: "http://www.inkscape.org/namespaces/inkscape",
+    cc:       "http://creativecommons.org/ns#",
+    dc:       "http://purl.org/dc/elements/1.1/",
+    rdf:      "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    xlink:    "http://www.w3.org/1999/xlink",
+    xml:      "http://www.w3.org/XML/1998/namespace"
+  }
+
+};
+
+InkWeb.el = function (tag, attributes) {
+  // A helper to create SVG elements
+  var element = document.createElementNS( this.NS.svg, tag );
+  for ( var att in attributes ) {
+    switch ( att ) {
+      case "parent":
+        attributes.parent.appendChild( element );
+        break;
+      case "text":
+        element.appendChild( document.createTextNode( attributes.text ) );
+        break;
+      default:
+        element.setAttribute( att, attributes[att] );
+    }
+  }
+  return element;
+}
+
+InkWeb.reGetStyleAttVal = function (att) {
+  return new RegExp( "(^|.*;)[ ]*"+ att +":([^;]*)(;.*|$)" )
+}
+
+InkWeb.getStyle = function (el, att) {
+  // This method is needed because el.style is only working
+  // to HTML style in the Firefox 3.0
+  if ( typeof(el) == "string" )
+    el = document.getElementById(el);
+  var style = el.getAttribute("style");
+  var match = this.reGetStyleAttVal(att).exec(style);
+  if ( match ) {
+    return match[2];
+  } else {
+    return false;
+  }
+}
+
+InkWeb.setStyle = function (el, att, val) {
+  if ( typeof(el) == "string" )
+    el = document.getElementById(el);
+  var style = el.getAttribute("style");
+  re = this.reGetStyleAttVal(att);
+  if ( re.test(style) ) {
+    style = style.replace( re, "$1"+ att +":"+ val +"$3" );
+  } else {
+    style += ";"+ att +":"+ val;
+  }
+  el.setAttribute( "style", style );
+  return val
+}
+
+InkWeb.transmitAtt = function (conf) {
+  conf.att = conf.att.split( /\s+/ );
+  if ( typeof(conf.from) == "string" )
+    conf.from = document.getElementById( conf.from );
+  if ( ! conf.to.join )
+    conf.to = [ conf.to ];
+  for ( var toEl,elN=0; toEl=conf.to[elN]; elN++ ) {
+    if ( typeof(toEl) == "string" )
+      toEl = document.getElementById( toEl );
+    for ( var i=0; i<conf.att.length; i++ ) {
+      var val = this.getStyle( conf.from, conf.att[i] );
+      if ( val ) {
+        this.setStyle( toEl, conf.att[i], val );
+      } else {
+        val = conf.from.getAttribute(conf.att[i]);
+        toEl.setAttribute( conf.att[i], val );
+      }
+    }
+  }
+}
+
+InkWeb.setAtt = function (conf) {
+  if ( ! conf.el.join )
+    conf.to = [ conf.el ];
+  conf.att = conf.att.split( /\s+/ );
+  conf.val = conf.val.split( /\s+/ );
+  for ( var el,elN=0; el=conf.el[elN]; elN++ ) {
+    if ( typeof(el) == "string" )
+      el = document.getElementById( el );
+    for ( var att,i=0; att=conf.att[i]; i++ ) {
+      if (
+           att == "width"  ||
+           att == "height" ||
+           att == "x"  ||
+           att == "y"  ||
+           att == "cx" ||
+           att == "cy" ||
+           att == "r"  ||
+           att == "rx" ||
+           att == "ry" ||
+           att == "transform"
+         ) {
+        el.setAttribute( att, conf.val[i] );
+      } else {
+        this.setStyle( el, att, conf.val[i] );
+      }
+    }
+  }
+}
+
+InkWeb.moveElTo = function (startConf) {
+  if ( typeof(startConf) == "string" ) {
+    // startConf may be only a element Id, to timeout recursive calls.
+    var el = document.getElementById( startConf );
+  } else {
+    if ( typeof(startConf.el) == "string" )
+      startConf.el = document.getElementById( startConf.el );
+    var el = startConf.el;
+  }
+  if ( ! el.inkWebMoving ) {
+    el.inkWebMoving = {
+      step: 0
+    };
+  }
+  var conf = el.inkWebMoving;
+  if ( conf.step == 0 ) {
+    conf.x = startConf.x;
+    conf.y = startConf.y;
+    // dur : duration of the animation in seconds
+    if ( startConf.dur ) { conf.dur = startConf.dur }
+    else { conf.dur = 1 }
+    // steps : animation steps in a second
+    if ( startConf.stepsBySec ) { conf.stepsBySec = startConf.stepsBySec }
+    else { conf.stepsBySec = 16 }
+    conf.sleep = Math.round( 1000 / conf.stepsBySec );
+    conf.steps = conf.dur * conf.stepsBySec;
+    var startPos = el.getBBox();
+    conf.xInc = ( conf.x - startPos.x ) / conf.steps;
+    conf.yInc = ( conf.y - startPos.y ) / conf.steps;
+    conf.transform = el.transform.baseVal.consolidate();
+    if ( ! conf.transform ) {
+      conf.transform = el.ownerSVGElement.createSVGTransform();
+    }
+    el.transform.baseVal.clear();
+    el.transform.baseVal.appendItem(conf.transform);
+  }
+  if ( conf.step < conf.steps ) {
+    conf.step++;
+    conf.transform.matrix.e += conf.xInc;
+    conf.transform.matrix.f += conf.yInc;
+    try{ el.ownerSVGElement.forceRedraw() }
+    catch(e){ this.log(e, "this "+el.ownerSVGElement+" has no forceRedraw().") }
+    conf.timeout = setTimeout( 'InkWeb.moveElTo("'+el.id+'")', conf.sleep );
+  } else {
+    delete el.inkWebMoving;
+  }
+}
+
+InkWeb.log = function () { /* if you need that, use the inkweb-debug.js too */ }
+]]></script>
+  <defs
+     id="defs86962">
+    <symbol
+       id="no"
+       viewBox="0 0 20 20">
+      <title
+         id="title73899">no</title>
+      <path
+         style="stroke-width:1"
+         inkscape:connector-curvature="0"
+         d="M 3.20675,2.6458333 4.1407292,3.5798125 3.5798125,4.1407292 2.6458333,3.20675 1.7092083,4.143375 1.1482917,3.5824583 2.0849167,2.6458333 1.1482917,1.7092083 1.7092083,1.1482917 2.6458333,2.0849167 3.5824583,1.1509375 4.143375,1.7118542 Z"
+         id="path73901" />
+    </symbol>
+    <symbol
+       id="facebook">
+      <title
+         id="title66460">Facebook</title>
+      <path
+         style="stroke-width:1"
+         inkscape:connector-curvature="0"
+         d="M 4.4979167,0.26458333 H 0.79375 c -0.29104167,0 -0.52916667,0.238125 -0.52916667,0.52916667 v 3.7041667 c 0,0.2913062 0.238125,0.5291666 0.52916667,0.5291666 H 2.6458333 V 3.175 H 2.1166667 V 2.5201562 H 2.6458333 V 1.9777604 c 0,-0.5725583 0.320675,-0.974725 0.9964209,-0.974725 l 0.4770437,5.292e-4 V 1.6928042 H 3.8025917 c -0.2629959,0 -0.3630084,0.1973791 -0.3630084,0.3804708 v 0.4471458 h 0.67945 L 3.96875,3.175 H 3.4395833 v 1.8520833 h 1.0583334 c 0.2910416,0 0.5291666,-0.2378604 0.5291666,-0.5291666 V 0.79375 c 0,-0.29104167 -0.238125,-0.52916667 -0.5291666,-0.52916667 z"
+         id="path66462" />
+    </symbol>
+    <symbol
+       id="linkedin_cirlce">
+      <title
+         id="title66557">LinkedIn (circle)</title>
+      <path
+         style="stroke-width:1"
+         inkscape:connector-curvature="0"
+         d="m 2.6458333,0.10583333 c -1.4028208,0 -2.53999997,1.13717917 -2.53999997,2.53999997 0,1.4028209 1.13717917,2.54 2.53999997,2.54 1.4028209,0 2.54,-1.1371791 2.54,-2.54 0,-1.4028208 -1.1371791,-2.53999997 -2.54,-2.53999997 z M 2.0240625,3.6986104 h -0.51435 V 2.0433771 h 0.51435 z m -0.26035,-1.8584333 c -0.1624542,0 -0.2674938,-0.1150938 -0.2674938,-0.2574396 0,-0.1452563 0.1082146,-0.2569104 0.2741084,-0.2569104 0.1658937,0 0.2674937,0.1116541 0.2706687,0.2569104 0,0.1423458 -0.104775,0.2574396 -0.2772833,0.2574396 z m 2.1388917,1.8584333 h -0.51435 V 2.7813 c 0,-0.2135188 -0.074613,-0.3585104 -0.2606146,-0.3585104 -0.1420813,0 -0.2264834,0.09816 -0.2637896,0.1926166 -0.013758,0.033602 -0.017198,0.081227 -0.017198,0.1285875 V 3.6983458 H 2.3320375 v -1.127125 c 0,-0.2066396 -0.00661,-0.3794125 -0.013494,-0.5281083 H 2.765425 l 0.023548,0.2299229 h 0.010319 c 0.067733,-0.10795 0.233627,-0.2672291 0.511175,-0.2672291 0.338402,0 0.5921375,0.2267479 0.5921375,0.7141104 z"
+         id="path66559" />
+    </symbol>
+    <symbol
+       id="twitter">
+      <title
+         id="title66722">Twitter</title>
+      <path
+         style="stroke-width:1"
+         inkscape:connector-curvature="0"
+         d="m 4.581525,1.6525875 c 0.00212,0.042862 0.00291,0.086254 0.00291,0.1291167 0,1.3202708 -1.0046229,2.8421541 -2.841625,2.8421541 -0.5643562,0 -1.08902498,-0.1653646 -1.53114373,-0.4489979 0.0783167,0.00926 0.15769166,0.014023 0.238125,0.014023 0.4683125,0 0.89878953,-0.1598083 1.24036663,-0.4273021 -0.4368271,-0.0082 -0.8059208,-0.2965979 -0.9329208,-0.6934729 0.0608542,0.011377 0.12356042,0.017463 0.18785417,0.017463 0.0912812,0 0.17965203,-0.011906 0.26326043,-0.03466 C 0.75141667,2.9588354 0.40719375,2.5553458 0.40719375,2.0711583 c 0,-0.00423 0,-0.0082 0,-0.012435 0.13467292,0.074877 0.288925,0.1198563 0.4524375,0.1251479 -0.26802292,-0.1793875 -0.4445,-0.4847166 -0.4445,-0.8315854 0,-0.1828271 0.0492125,-0.35454165 0.13546667,-0.50217915 C 1.0429875,1.4546792 1.7793229,1.8520833 2.6093208,1.8938875 c -0.016933,-0.07329 -0.025665,-0.149225 -0.025665,-0.2278063 0,-0.5513916 0.4468813,-0.99827287 0.9985375,-0.99827287 0.2873375,0 0.5468938,0.12091459 0.7291917,0.31511875 C 4.5386625,0.93794792 4.7524458,0.85486875 4.9455917,0.74056875 4.8709792,0.97366667 4.7124937,1.1694583 4.5063833,1.2930187 4.708525,1.2686771 4.9006125,1.2154958 5.08,1.1358562 4.9461208,1.3364104 4.7767875,1.5120937 4.581525,1.6525875 Z"
+         id="path66724" />
+    </symbol>
+    <symbol
+       id="picasa">
+      <title
+         id="title66592">Picasa</title>
+      <path
+         style="stroke-width:1"
+         inkscape:connector-curvature="0"
+         d="M 1.5367,0.48233542 C 0.71940208,0.90249375 0.21166667,1.7314333 0.21166667,2.6513896 c 0,0.1674812 0.0211667,0.3373437 0.0584729,0.5074708 L 2.3733125,1.2435417 C 2.1489458,1.0395479 1.5594542,0.50297292 1.5367,0.48233542 Z M 3.6493979,0.4302125 C 3.3318979,0.28601458 2.9942896,0.21166667 2.6455687,0.21166667 c -0.2471208,0 -0.490802,0.041275 -0.7273395,0.11668125 L 3.6493979,1.9028833 Z M 4.01955,0.64505417 V 3.4541354 H 4.9416229 C 5.032375,3.1943146 5.0797354,2.9239104 5.0797354,2.651125 5.08,1.8486437 4.6770396,1.0974917 4.01955,0.64505417 Z M 0.38708542,3.5530896 C 0.56541458,4.0010292 0.87841667,4.3865271 1.2782021,4.6601062 V 2.7418771 L 0.73712917,3.2342667 C 0.55245,3.4020125 0.3984625,3.5427708 0.38708542,3.5530896 Z M 1.6483542,4.8749479 C 1.8957396,4.9866021 2.1545021,5.0553937 2.4209375,5.08 H 2.8678187 C 3.6665958,5.0056521 4.3830875,4.5328417 4.7725542,3.8248167 h -3.1242 z"
+         id="path66594" />
+    </symbol>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.91475265"
+     inkscape:cx="636.12499"
+     inkscape:cy="509.68211"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer2"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:window-width="1920"
+     inkscape:window-height="1057"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     showguides="false"
+     units="px" />
+  <metadata
+     id="metadata86965">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="bg"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(347.5491,90.425591)"
+     style="display:inline"
+     sodipodi:insensitive="true">
+    <rect
+       style="opacity:1;vector-effect:none;fill:#2b3941;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.79374999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect86949"
+       width="309.5625"
+       height="375.70834"
+       x="-347.5491"
+       y="-90.425591"
+       onmouseout="" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="Layer 2"
+     style="display:inline"
+     transform="translate(2.7832031e-6)">
+    <use
+       id="use84383"
+       style="fill:#ffffff;stroke:none;stroke-width:12.65690517"
+       xlink:href="#no"
+       x="0"
+       y="0"
+       width="100%"
+       height="100%"
+       transform="matrix(0.07900826,0,0,0.07900826,290.47736,6.3247225)"
+       onclick="history.back()" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:4.70457172px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#2ca7ca;fill-opacity:1;stroke:none;stroke-width:0.26458335"
+       x="142.28175"
+       y="39.25095"
+       id="text88722"><tspan
+         sodipodi:role="line"
+         id="tspan88720"
+         x="142.28175"
+         y="39.25095"
+         style="font-weight:bold;font-size:4.40972233px;fill:#2ca7ca;fill-opacity:1;stroke-width:0.26458335">Learn more</tspan></text>
+    <rect
+       style="display:inline;opacity:1;vector-effect:none;fill:#2ca7ca;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.79374987;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect208732"
+       width="52.61211"
+       height="1708.4775"
+       x="405.08917"
+       y="-747.57269"
+       onmouseover=""
+       onmouseout=";InkWeb.setAtt({el:['image208714'], att:'visibility', val:'visible'});InkWeb.setAtt({el:['rect208732'], att:'cursor', val:'pointer'})"
+       onload=""
+       onfocusout="" />
+    <text
+       id="text88732"
+       y="53.085674"
+       x="124.74876"
+       style="font-style:normal;font-weight:normal;font-size:12.87844753px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       xml:space="preserve"><tspan
+         style="font-weight:bold;font-size:11.99444485px;fill:#ffffff;fill-opacity:1;stroke-width:0.26458332"
+         y="53.085674"
+         x="124.74876"
+         id="tspan88730"
+         sodipodi:role="line">ABOUT US</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:12.87844753px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="111.6451"
+       y="68.468781"
+       id="text88736"><tspan
+         sodipodi:role="line"
+         id="tspan88734"
+         x="111.6451"
+         y="68.468781"
+         style="font-weight:bold;font-size:11.99444485px;fill:#ffffff;fill-opacity:1;stroke-width:0.26458332">OUR SERVICES</tspan></text>
+    <text
+       id="text88740"
+       y="83.851883"
+       x="127.71578"
+       style="font-style:normal;font-weight:normal;font-size:12.87844753px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       xml:space="preserve"><tspan
+         style="font-weight:bold;font-size:11.99444485px;fill:#ffffff;fill-opacity:1;stroke-width:0.26458332"
+         y="83.851883"
+         x="127.71578"
+         id="tspan88738"
+         sodipodi:role="line">CAREERS</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:12.87844753px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="126.47886"
+       y="99.235016"
+       id="text88744"><tspan
+         sodipodi:role="line"
+         id="tspan88742"
+         x="126.47886"
+         y="99.235016"
+         style="font-weight:bold;font-size:11.99444485px;fill:#ffffff;fill-opacity:1;stroke-width:0.26458332">JOURNAL</tspan></text>
+    <text
+       id="text88748"
+       y="120.63948"
+       x="144.42519"
+       style="font-style:normal;font-weight:normal;font-size:4.70457172px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#2ca7ca;fill-opacity:1;stroke:none;stroke-width:0.26458335"
+       xml:space="preserve"><tspan
+         style="font-weight:bold;font-size:4.40972233px;fill:#2ca7ca;fill-opacity:1;stroke-width:0.26458335"
+         y="120.63948"
+         x="144.42519"
+         id="tspan88746"
+         sodipodi:role="line">Our Work</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:12.87844753px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="144.25763"
+       y="134.44289"
+       id="text88752"
+       onclick="window.location = &quot;oyster_all.svg&quot;"><tspan
+         sodipodi:role="line"
+         id="tspan88750"
+         x="144.25763"
+         y="134.44289"
+         style="font-weight:bold;font-size:11.99444485px;fill:#ffffff;fill-opacity:1;stroke-width:0.26458332">ALL</tspan></text>
+    <text
+       id="text88756"
+       y="149.81076"
+       x="104.519"
+       style="font-style:normal;font-weight:normal;font-size:12.87844753px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       xml:space="preserve"><tspan
+         style="font-weight:bold;font-size:11.99444485px;fill:#ffffff;fill-opacity:1;stroke-width:0.26458332"
+         y="149.81076"
+         x="104.519"
+         id="tspan88754"
+         sodipodi:role="line">GRAPHIC DESIGN</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:12.87844753px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="126.17047"
+       y="165.18462"
+       id="text88760"><tspan
+         sodipodi:role="line"
+         id="tspan88758"
+         x="126.17047"
+         y="165.18462"
+         style="font-weight:bold;font-size:11.99444485px;fill:#ffffff;fill-opacity:1;stroke-width:0.26458332">WEB &amp; UX</tspan></text>
+    <text
+       id="text88764"
+       y="180.5645"
+       x="133.82011"
+       style="font-style:normal;font-weight:normal;font-size:12.87844753px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       xml:space="preserve"><tspan
+         style="font-weight:bold;font-size:11.99444485px;fill:#ffffff;fill-opacity:1;stroke-width:0.26458332"
+         y="180.5645"
+         x="133.82011"
+         id="tspan88762"
+         sodipodi:role="line">BRAND</tspan></text>
+    <text
+       id="text88768"
+       y="195.93237"
+       x="119.27956"
+       style="font-style:normal;font-weight:normal;font-size:12.87844753px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       xml:space="preserve"><tspan
+         style="font-weight:bold;font-size:11.99444485px;fill:#ffffff;fill-opacity:1;stroke-width:0.26458332"
+         y="195.93237"
+         x="119.27956"
+         id="tspan88766"
+         sodipodi:role="line">MARKETING</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:12.87844753px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="136.85948"
+       y="211.30623"
+       id="text88772"><tspan
+         sodipodi:role="line"
+         id="tspan88770"
+         x="136.85948"
+         y="211.30623"
+         style="font-weight:bold;font-size:11.99444485px;fill:#ffffff;fill-opacity:1;stroke-width:0.26458332">VIDEO</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:4.70457172px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#2ca7ca;fill-opacity:1;stroke:none;stroke-width:0.26458335"
+       x="130.75963"
+       y="232.81898"
+       id="text88776"><tspan
+         sodipodi:role="line"
+         id="tspan88774"
+         x="130.75963"
+         y="232.81898"
+         style="font-weight:bold;font-size:4.40972233px;fill:#2ca7ca;fill-opacity:1;stroke-width:0.26458335">How can we help you?</tspan></text>
+    <text
+       id="text88780"
+       y="246.80954"
+       x="72.365639"
+       style="font-style:normal;font-weight:normal;font-size:12.87844753px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       xml:space="preserve"><tspan
+         style="font-weight:bold;font-size:11.99444485px;fill:#ffffff;fill-opacity:1;stroke-width:0.26458332"
+         y="246.80954"
+         x="72.365639"
+         id="tspan88778"
+         sodipodi:role="line">CHARITIES &amp; THIRD SECTOR</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:12.87844753px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="88.477829"
+       y="262.1803"
+       id="text88784"><tspan
+         sodipodi:role="line"
+         id="tspan88782"
+         x="88.477829"
+         y="262.1803"
+         style="font-weight:bold;font-size:11.99444485px;fill:#ffffff;fill-opacity:1;stroke-width:0.26458332">SCHOOLS &amp; COLLEGES</tspan></text>
+    <text
+       id="text88788"
+       y="277.55103"
+       x="78.586815"
+       style="font-style:normal;font-weight:normal;font-size:12.87844753px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       xml:space="preserve"><tspan
+         style="font-weight:bold;font-size:11.99444485px;fill:#ffffff;fill-opacity:1;stroke-width:0.26458332"
+         y="277.55103"
+         x="78.586815"
+         id="tspan88786"
+         sodipodi:role="line">COMMERCIAL MARKETING</tspan></text>
+    <text
+       id="text88792"
+       y="299.0358"
+       x="137.33101"
+       style="font-style:normal;font-weight:normal;font-size:4.70457172px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#2ca7ca;fill-opacity:1;stroke:none;stroke-width:0.26458335"
+       xml:space="preserve"><tspan
+         style="font-weight:bold;font-size:4.40972233px;fill:#2ca7ca;fill-opacity:1;stroke-width:0.26458335"
+         y="299.0358"
+         x="137.33101"
+         id="tspan88790"
+         sodipodi:role="line">Connect with us</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:12.87844753px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="117.5369"
+       y="312.983"
+       id="text88796"
+       onclick="window.location = &quot;oyster_contact.svg&quot;"><tspan
+         sodipodi:role="line"
+         id="tspan88794"
+         x="117.5369"
+         y="312.983"
+         style="font-weight:bold;font-size:11.99444485px;fill:#ffffff;fill-opacity:1;stroke-width:0.26458332">CONTACT US</tspan></text>
+    <g
+       id="g89209"
+       transform="translate(-407.23006,-16.404167)">
+      <use
+         transform="matrix(1.7847769,0,0,1.7847769,529.04466,337.99597)"
+         height="100%"
+         width="100%"
+         y="0"
+         x="0"
+         xlink:href="#facebook"
+         style="fill:#ffffff;stroke:none;stroke-width:0.56029409"
+         id="use89077" />
+      <use
+         transform="matrix(1.6732284,0,0,1.6732284,548.16947,338.29111)"
+         height="100%"
+         width="100%"
+         y="0"
+         x="0"
+         xlink:href="#linkedin_cirlce"
+         style="fill:#ffffff;stroke:none;stroke-width:0.59764707"
+         id="use89115" />
+      <use
+         transform="matrix(1.8958305,0,0,1.8958305,566.41017,337.70214)"
+         height="100%"
+         width="100%"
+         y="0"
+         x="0"
+         xlink:href="#twitter"
+         style="fill:#ffffff;stroke:none;stroke-width:0.52747333"
+         id="use89153" />
+      <use
+         transform="matrix(1.7459774,0,0,1.7459774,585.63664,338.09863)"
+         height="100%"
+         width="100%"
+         y="0"
+         x="0"
+         xlink:href="#picasa"
+         style="fill:#ffffff;stroke:none;stroke-width:0.57274508"
+         id="use89191" />
+    </g>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer3"
+     inkscape:label="logo"
+     sodipodi:insensitive="true"
+     style="display:inline">
+    <image
+       sodipodi:absref="/media/an/M12/software_tutorial/inkscape/web/oyster/img/home/logo.png"
+       xlink:href="img/home/logo.png"
+       style="display:inline;stroke-width:2.86333036"
+       y="7.9060607"
+       x="13.006331"
+       id="image89223"
+       preserveAspectRatio="none"
+       height="11.088487"
+       width="34.189503"
+       onclick="window.location = &quot;oyster_home.svg&quot;" />
+  </g>
+</svg>
