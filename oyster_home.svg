@@ -1,0 +1,2314 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--Created with Inkscape (http://www.inkscape.org/)-->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="1170"
+   height="6420"
+   viewBox="0 0 309.56249 1698.625"
+   version="1.1"
+   id="svg870"
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
+   sodipodi:docname="oyster_home.svg">
+  <script
+     type="text/javascript"
+     id="inkwebjs"><![CDATA[
+/* inkweb.js - InkWebEffect:AutoUpdate */
+/*
+**  InkWeb - Inkscape's Javscript features for the open vector web
+**
+**  Copyright (C) 2009 Aurelio A. Heckert, aurium (a) gmail dot com
+**
+**  ********* Bugs and New Fetures *************************************
+**   If you found any bug on this script or if you want to propose a
+**   new feature, please report it in the inkscape bug traker
+**   https://bugs.launchpad.net/inkscape/+filebug
+**   and assign that to Aurium.
+**  ********************************************************************
+**
+**  This program is free software: you can redistribute it and/or modify
+**  it under the terms of the GNU Lesser General Public License as published
+**  by the Free Software Foundation, either version 3 of the License, or
+**  (at your option) any later version.
+**
+**  This program is distributed in the hope that it will be useful,
+**  but WITHOUT ANY WARRANTY; without even the implied warranty of
+**  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+**  GNU Lesser General Public License for more details.
+**
+**  You should have received a copy of the GNU Lesser General Public License
+**  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+*/
+
+var InkWeb = {
+
+  version: 0.04,
+
+  NS: {
+    svg:      "http://www.w3.org/2000/svg",
+    sodipodi: "http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd",
+    inkscape: "http://www.inkscape.org/namespaces/inkscape",
+    cc:       "http://creativecommons.org/ns#",
+    dc:       "http://purl.org/dc/elements/1.1/",
+    rdf:      "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    xlink:    "http://www.w3.org/1999/xlink",
+    xml:      "http://www.w3.org/XML/1998/namespace"
+  }
+
+};
+
+InkWeb.el = function (tag, attributes) {
+  // A helper to create SVG elements
+  var element = document.createElementNS( this.NS.svg, tag );
+  for ( var att in attributes ) {
+    switch ( att ) {
+      case "parent":
+        attributes.parent.appendChild( element );
+        break;
+      case "text":
+        element.appendChild( document.createTextNode( attributes.text ) );
+        break;
+      default:
+        element.setAttribute( att, attributes[att] );
+    }
+  }
+  return element;
+}
+
+InkWeb.reGetStyleAttVal = function (att) {
+  return new RegExp( "(^|.*;)[ ]*"+ att +":([^;]*)(;.*|$)" )
+}
+
+InkWeb.getStyle = function (el, att) {
+  // This method is needed because el.style is only working
+  // to HTML style in the Firefox 3.0
+  if ( typeof(el) == "string" )
+    el = document.getElementById(el);
+  var style = el.getAttribute("style");
+  var match = this.reGetStyleAttVal(att).exec(style);
+  if ( match ) {
+    return match[2];
+  } else {
+    return false;
+  }
+}
+
+InkWeb.setStyle = function (el, att, val) {
+  if ( typeof(el) == "string" )
+    el = document.getElementById(el);
+  var style = el.getAttribute("style");
+  re = this.reGetStyleAttVal(att);
+  if ( re.test(style) ) {
+    style = style.replace( re, "$1"+ att +":"+ val +"$3" );
+  } else {
+    style += ";"+ att +":"+ val;
+  }
+  el.setAttribute( "style", style );
+  return val
+}
+
+InkWeb.transmitAtt = function (conf) {
+  conf.att = conf.att.split( /\s+/ );
+  if ( typeof(conf.from) == "string" )
+    conf.from = document.getElementById( conf.from );
+  if ( ! conf.to.join )
+    conf.to = [ conf.to ];
+  for ( var toEl,elN=0; toEl=conf.to[elN]; elN++ ) {
+    if ( typeof(toEl) == "string" )
+      toEl = document.getElementById( toEl );
+    for ( var i=0; i<conf.att.length; i++ ) {
+      var val = this.getStyle( conf.from, conf.att[i] );
+      if ( val ) {
+        this.setStyle( toEl, conf.att[i], val );
+      } else {
+        val = conf.from.getAttribute(conf.att[i]);
+        toEl.setAttribute( conf.att[i], val );
+      }
+    }
+  }
+}
+
+InkWeb.setAtt = function (conf) {
+  if ( ! conf.el.join )
+    conf.to = [ conf.el ];
+  conf.att = conf.att.split( /\s+/ );
+  conf.val = conf.val.split( /\s+/ );
+  for ( var el,elN=0; el=conf.el[elN]; elN++ ) {
+    if ( typeof(el) == "string" )
+      el = document.getElementById( el );
+    for ( var att,i=0; att=conf.att[i]; i++ ) {
+      if (
+           att == "width"  ||
+           att == "height" ||
+           att == "x"  ||
+           att == "y"  ||
+           att == "cx" ||
+           att == "cy" ||
+           att == "r"  ||
+           att == "rx" ||
+           att == "ry" ||
+           att == "transform"
+         ) {
+        el.setAttribute( att, conf.val[i] );
+      } else {
+        this.setStyle( el, att, conf.val[i] );
+      }
+    }
+  }
+}
+
+InkWeb.moveElTo = function (startConf) {
+  if ( typeof(startConf) == "string" ) {
+    // startConf may be only a element Id, to timeout recursive calls.
+    var el = document.getElementById( startConf );
+  } else {
+    if ( typeof(startConf.el) == "string" )
+      startConf.el = document.getElementById( startConf.el );
+    var el = startConf.el;
+  }
+  if ( ! el.inkWebMoving ) {
+    el.inkWebMoving = {
+      step: 0
+    };
+  }
+  var conf = el.inkWebMoving;
+  if ( conf.step == 0 ) {
+    conf.x = startConf.x;
+    conf.y = startConf.y;
+    // dur : duration of the animation in seconds
+    if ( startConf.dur ) { conf.dur = startConf.dur }
+    else { conf.dur = 1 }
+    // steps : animation steps in a second
+    if ( startConf.stepsBySec ) { conf.stepsBySec = startConf.stepsBySec }
+    else { conf.stepsBySec = 16 }
+    conf.sleep = Math.round( 1000 / conf.stepsBySec );
+    conf.steps = conf.dur * conf.stepsBySec;
+    var startPos = el.getBBox();
+    conf.xInc = ( conf.x - startPos.x ) / conf.steps;
+    conf.yInc = ( conf.y - startPos.y ) / conf.steps;
+    conf.transform = el.transform.baseVal.consolidate();
+    if ( ! conf.transform ) {
+      conf.transform = el.ownerSVGElement.createSVGTransform();
+    }
+    el.transform.baseVal.clear();
+    el.transform.baseVal.appendItem(conf.transform);
+  }
+  if ( conf.step < conf.steps ) {
+    conf.step++;
+    conf.transform.matrix.e += conf.xInc;
+    conf.transform.matrix.f += conf.yInc;
+    try{ el.ownerSVGElement.forceRedraw() }
+    catch(e){ this.log(e, "this "+el.ownerSVGElement+" has no forceRedraw().") }
+    conf.timeout = setTimeout( 'InkWeb.moveElTo("'+el.id+'")', conf.sleep );
+  } else {
+    delete el.inkWebMoving;
+  }
+}
+
+InkWeb.log = function () { /* if you need that, use the inkweb-debug.js too */ }
+]]></script>
+  <defs
+     id="defs864">
+    <inkscape:path-effect
+       effect="simplify"
+       id="path-effect86284"
+       is_visible="true"
+       steps="1"
+       threshold="9.90099e-05"
+       smooth_angles="360"
+       helper_size="0"
+       simplify_individual_paths="false"
+       simplify_just_coalesce="false"
+       simplifyindividualpaths="false"
+       simplifyJustCoalesce="false" />
+    <symbol
+       id="calendar"
+       inkscape:label="calendar">
+      <desc
+         id="desc36887">
+            Calendar
+         </desc>
+      <title
+         id="title36663">
+            calendar
+         </title>
+      <path
+         style="fill:#888a85;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.37067887px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         d="m 1172.6443,990.3602 c 10.4531,-0.13155 112.2624,-0.23043 112.2624,-0.23043 l 12.5463,-13.4894 14.0467,13.62052 c 0,0 100.3098,0.0843 110.7633,0.0993 v 182.22641 h -250 c 0.1271,-9.934 0.2541,-172.2924 0.3813,-182.22641 z"
+         id="path25008"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="cccccccc" />
+      <g
+         style="fill:#eeeeec"
+         id="g25140">
+        <g
+           id="g25102"
+           style="fill:#eeeeec">
+          <g
+             transform="translate(0,12)"
+             id="g25066"
+             style="fill:#eeeeec">
+            <path
+               id="rect25010"
+               d="m 1180.3871,1034.5555 h 30 V 1061 h -30 z"
+               style="opacity:1;fill:#eeeeec;fill-opacity:1;stroke:none;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+               inkscape:connector-curvature="0" />
+            <path
+               id="rect25012"
+               d="m 1214.0537,1034.5555 h 30 V 1061 h -30 z"
+               style="opacity:1;fill:#eeeeec;fill-opacity:1;stroke:none;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+               inkscape:connector-curvature="0" />
+            <path
+               id="rect25014"
+               d="m 1247.7205,1034.5555 h 30 V 1061 h -30 z"
+               style="opacity:1;fill:#eeeeec;fill-opacity:1;stroke:none;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+               inkscape:connector-curvature="0" />
+            <path
+               id="rect25016"
+               d="m 1281.3871,1034.5555 h 30 V 1061 h -30 z"
+               style="opacity:1;fill:#eeeeec;fill-opacity:1;stroke:none;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+               inkscape:connector-curvature="0" />
+            <path
+               id="rect25018"
+               d="m 1315.0537,1034.5555 h 30 V 1061 h -30 z"
+               style="opacity:1;fill:#eeeeec;fill-opacity:1;stroke:none;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+               inkscape:connector-curvature="0" />
+            <path
+               id="rect25020"
+               d="m 1348.7205,1034.5555 h 30 V 1061 h -30 z"
+               style="opacity:1;fill:#eeeeec;fill-opacity:1;stroke:none;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+               inkscape:connector-curvature="0" />
+            <path
+               id="rect25022"
+               d="m 1382.3871,1034.5555 h 30 V 1061 h -30 z"
+               style="opacity:1;fill:#eeeeec;fill-opacity:1;stroke:none;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+               inkscape:connector-curvature="0" />
+          </g>
+          <g
+             transform="translate(0,1.3333359)"
+             id="g25093"
+             style="fill:#eeeeec">
+            <path
+               id="rect25024"
+               d="m 1180.3871,1075.5555 h 30 V 1102 h -30 z"
+               style="opacity:1;fill:#eeeeec;fill-opacity:1;stroke:none;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+               inkscape:connector-curvature="0" />
+            <path
+               id="rect25026"
+               d="m 1214.0537,1075.5555 h 30 V 1102 h -30 z"
+               style="opacity:1;fill:#eeeeec;fill-opacity:1;stroke:none;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+               inkscape:connector-curvature="0" />
+            <path
+               id="rect25028"
+               d="m 1247.7205,1075.5555 h 30 V 1102 h -30 z"
+               style="opacity:1;fill:#eeeeec;fill-opacity:1;stroke:none;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+               inkscape:connector-curvature="0" />
+            <path
+               id="rect25030"
+               d="m 1281.3871,1075.5555 h 30 V 1102 h -30 z"
+               style="opacity:1;fill:#555753;fill-opacity:1;stroke:none;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+               inkscape:connector-curvature="0" />
+            <path
+               id="rect25032"
+               d="m 1315.0537,1075.5555 h 30 V 1102 h -30 z"
+               style="opacity:1;fill:#eeeeec;fill-opacity:1;stroke:none;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+               inkscape:connector-curvature="0" />
+            <path
+               id="rect25034"
+               d="m 1348.7205,1075.5555 h 30 V 1102 h -30 z"
+               style="opacity:1;fill:#eeeeec;fill-opacity:1;stroke:none;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+               inkscape:connector-curvature="0" />
+            <path
+               id="rect25036"
+               d="m 1382.3871,1075.5555 h 30 V 1102 h -30 z"
+               style="opacity:1;fill:#eeeeec;fill-opacity:1;stroke:none;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+               inkscape:connector-curvature="0" />
+          </g>
+          <g
+             transform="translate(0,12.666672)"
+             id="g25075"
+             style="fill:#eeeeec">
+            <path
+               id="rect25038"
+               d="m 1180.3871,1094.5555 h 30 V 1121 h -30 z"
+               style="opacity:1;fill:#eeeeec;fill-opacity:1;stroke:none;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+               inkscape:connector-curvature="0" />
+            <path
+               id="rect25040"
+               d="m 1214.0537,1094.5555 h 30 V 1121 h -30 z"
+               style="opacity:1;fill:#eeeeec;fill-opacity:1;stroke:none;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+               inkscape:connector-curvature="0" />
+            <path
+               id="rect25042"
+               d="m 1247.7205,1094.5555 h 30 V 1121 h -30 z"
+               style="opacity:1;fill:#eeeeec;fill-opacity:1;stroke:none;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+               inkscape:connector-curvature="0" />
+            <path
+               id="rect25044"
+               d="m 1281.3871,1094.5555 h 30 V 1121 h -30 z"
+               style="opacity:1;fill:#eeeeec;fill-opacity:1;stroke:none;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+               inkscape:connector-curvature="0" />
+            <path
+               id="rect25046"
+               d="m 1315.0537,1094.5555 h 30 V 1121 h -30 z"
+               style="opacity:1;fill:#eeeeec;fill-opacity:1;stroke:none;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+               inkscape:connector-curvature="0" />
+            <path
+               id="rect25048"
+               d="m 1348.7205,1094.5555 h 30 V 1121 h -30 z"
+               style="opacity:1;fill:#eeeeec;fill-opacity:1;stroke:none;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+               inkscape:connector-curvature="0" />
+            <path
+               id="rect25050"
+               d="m 1382.3871,1094.5555 h 30 V 1121 h -30 z"
+               style="opacity:1;fill:#eeeeec;fill-opacity:1;stroke:none;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+               inkscape:connector-curvature="0" />
+          </g>
+          <g
+             transform="translate(0,12)"
+             id="g25084"
+             style="fill:#eeeeec">
+            <path
+               id="rect25052"
+               d="m 1180.3871,1125.5555 h 30 V 1152 h -30 z"
+               style="opacity:1;fill:#eeeeec;fill-opacity:1;stroke:none;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+               inkscape:connector-curvature="0" />
+            <path
+               id="rect25054"
+               d="m 1214.0537,1125.5555 h 30 V 1152 h -30 z"
+               style="opacity:1;fill:#eeeeec;fill-opacity:1;stroke:none;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+               inkscape:connector-curvature="0" />
+            <path
+               id="rect25056"
+               d="m 1247.7205,1125.5555 h 30 V 1152 h -30 z"
+               style="opacity:1;fill:#eeeeec;fill-opacity:1;stroke:none;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+               inkscape:connector-curvature="0" />
+            <path
+               id="rect25058"
+               d="m 1281.3871,1125.5555 h 30 V 1152 h -30 z"
+               style="opacity:1;fill:#eeeeec;fill-opacity:1;stroke:none;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+               inkscape:connector-curvature="0" />
+            <path
+               id="rect25060"
+               d="m 1315.0537,1125.5555 h 30 V 1152 h -30 z"
+               style="opacity:1;fill:#eeeeec;fill-opacity:1;stroke:none;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+               inkscape:connector-curvature="0" />
+            <path
+               id="rect25062"
+               d="m 1348.7205,1125.5555 h 30 V 1152 h -30 z"
+               style="opacity:1;fill:#eeeeec;fill-opacity:1;stroke:none;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+               inkscape:connector-curvature="0" />
+            <path
+               id="rect25064"
+               d="m 1382.3871,1125.5555 h 30 V 1152 h -30 z"
+               style="opacity:1;fill:#eeeeec;fill-opacity:1;stroke:none;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+               inkscape:connector-curvature="0" />
+          </g>
+        </g>
+        <path
+           id="rect25136"
+           d="m 1180.0049,1005 h 232.7645 v 36 h -232.7645 z"
+           style="opacity:1;fill:#eeeeec;fill-opacity:1;stroke:none;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           inkscape:connector-curvature="0" />
+      </g>
+    </symbol>
+    <symbol
+       id="navigation-menu">
+      <title
+         id="title17240">
+            navigation-menu
+         </title>
+      <g
+         style="display:inline"
+         id="g4845-843"
+         transform="matrix(0,-1,-1,0,373.50506,516.50504)">
+        <g
+           transform="matrix(0,-1,-1,0,1394.3622,441.36221)"
+           id="g1708-78">
+          <rect
+             y="962.36218"
+             x="0"
+             height="90"
+             width="90"
+             id="rect1710-27"
+             style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:none;stroke:none;stroke-width:7.5;marker:none;enable-background:accumulate" />
+          <rect
+             y="980.36206"
+             x="9.0000401"
+             height="9.0001402"
+             width="71.999962"
+             id="rect4067-6"
+             style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:#808080;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.80000001;marker:none;enable-background:accumulate" />
+          <rect
+             style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:#808080;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.80000001;marker:none;enable-background:accumulate"
+             id="rect4069"
+             width="71.999962"
+             height="8.9999208"
+             x="9.0000401"
+             y="1002.3622" />
+          <rect
+             y="1024.3622"
+             x="9.0000401"
+             height="9.0001402"
+             width="71.999962"
+             id="rect4090"
+             style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:#808080;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.80000001;marker:none;enable-background:accumulate" />
+        </g>
+      </g>
+    </symbol>
+    <symbol
+       id="symbol81133"
+       viewBox="0 0 576.44501 577.45154">
+      <title
+         id="title81125">
+            station_wind
+         </title>
+      <path
+         d="M 64.571,0.06355556 C 23.236,0.06355556 0,21.434556 0,65.099556 V 515.22256 c 0,40.844 20.894,62.229 62.192,62.229 h 452.024 c 41.307,0 62.229,-20.316 62.229,-62.229 V 65.099556 c 0,-42.601 -20.922,-65.03600044 -63.522,-65.03600044 -0.003,0 -448.494,-0.143 -448.352,0 z"
+         id="path81127"
+         inkscape:connector-curvature="0" />
+      <path
+         d="m 203.13975,172.57095 a 3.9433293,3.9433293 0 0 0 -3.93945,3.79492 l -13.78125,365.9375 a 3.9433293,3.9433293 0 0 0 3.88281,4.0918 c 84.48956,1.2057 150.2346,0.9375 235.96289,0.9375 a 3.9433293,3.9433293 0 0 0 3.94336,-3.94336 V 429.73306 a 3.9433293,3.9433293 0 0 0 -3.94336,-3.94336 H 245.49131 l -5.84765,-249.36719 a 3.9433293,3.9433293 0 0 0 -3.94141,-3.85156 z"
+         id="path81129"
+         inkscape:connector-curvature="0"
+         style="opacity:0.8;fill:#ffffff" />
+      <path
+         d="m 159.84873,26.180322 c -0.18684,-0.01123 -0.36527,0.01083 -0.53125,0.06836 -10.62233,3.681915 33.10692,146.547718 30.98438,157.587898 -2.12254,11.04017 -95.708782,127.50697 -87.20898,134.86523 8.4998,7.35826 110.36008,-101.94504 120.98242,-105.62695 10.62233,-3.68192 158.2798,19.13392 160.40234,8.09375 2.12254,-11.04017 -143.467,-44.60464 -151.9668,-51.96289 -8.36699,-7.24329 -60.89063,-142.318038 -72.66211,-143.025398 z"
+         id="path81131"
+         inkscape:connector-curvature="0"
+         style="fill:#ffffff;fill-rule:evenodd" />
+    </symbol>
+    <symbol
+       id="menu-alt"
+       viewBox="0 0 20 20">
+      <title
+         id="title73954">
+            menu-alt
+         </title>
+      <path
+         d="M 17,7 V 5 H 3 v 2 z m 0,4 V 9 H 3 v 2 z m 0,4 V 13 H 3 v 2 z"
+         id="path73956"
+         inkscape:connector-curvature="0" />
+    </symbol>
+    <symbol
+       id="menu"
+       viewBox="0 0 20 20">
+      <title
+         id="title73959">
+            menu
+         </title>
+      <path
+         d="M 3,4 H 17 V 6 H 3 Z m 0,5 h 14 v 2 H 3 Z m 0,5 h 14 v 2 H 3 Z"
+         id="path73961"
+         inkscape:connector-curvature="0" />
+    </symbol>
+    <symbol
+       id="linkedin_cirlce">
+      <title
+         id="title66556">LinkedIn (circle)</title>
+      <path
+         d="m 10,0.4 c -5.302,0 -9.6,4.298 -9.6,9.6 0,5.302 4.298,9.6 9.6,9.6 5.302,0 9.6,-4.298 9.6,-9.6 C 19.6,4.698 15.302,0.4 10,0.4 Z M 7.65,13.979 H 5.706 V 7.723 H 7.65 Z M 6.666,6.955 c -0.614,0 -1.011,-0.435 -1.011,-0.973 0,-0.549 0.409,-0.971 1.036,-0.971 0.627,0 1.011,0.422 1.023,0.971 0,0.538 -0.396,0.973 -1.048,0.973 z m 8.084,7.024 h -1.944 v -3.467 c 0,-0.807 -0.282,-1.355 -0.985,-1.355 -0.537,0 -0.856,0.371 -0.997,0.728 -0.052,0.127 -0.065,0.307 -0.065,0.486 v 3.607 H 8.814 V 9.718 C 8.814,8.937 8.789,8.284 8.763,7.722 h 1.689 l 0.089,0.869 h 0.039 c 0.256,-0.408 0.883,-1.01 1.932,-1.01 1.279,0 2.238,0.857 2.238,2.699 z"
+         id="path66558"
+         inkscape:connector-curvature="0" />
+    </symbol>
+    <symbol
+       id="facebook">
+      <title
+         id="title66459">Facebook</title>
+      <path
+         d="M 17,1 H 3 C 1.9,1 1,1.9 1,3 v 14 c 0,1.101 0.9,2 2,2 h 7 V 12 H 8 V 9.525 h 2 v -2.05 c 0,-2.164 1.212,-3.684 3.766,-3.684 l 1.803,0.002 V 6.398 H 14.372 C 13.378,6.398 13,7.144 13,7.836 v 1.69 h 2.568 L 15,12 h -2 v 7 h 4 c 1.1,0 2,-0.899 2,-2 V 3 C 19,1.9 18.1,1 17,1 Z"
+         id="path66461"
+         inkscape:connector-curvature="0" />
+    </symbol>
+    <symbol
+       id="twitter">
+      <title
+         id="title66721">Twitter</title>
+      <path
+         d="m 17.316,6.246 c 0.008,0.162 0.011,0.326 0.011,0.488 0,4.99 -3.797,10.742 -10.74,10.742 -2.133,0 -4.116,-0.625 -5.787,-1.697 0.296,0.035 0.596,0.053 0.9,0.053 1.77,0 3.397,-0.604 4.688,-1.615 -1.651,-0.031 -3.046,-1.121 -3.526,-2.621 0.23,0.043 0.467,0.066 0.71,0.066 0.345,0 0.679,-0.045 0.995,-0.131 C 2.84,11.183 1.539,9.658 1.539,7.828 c 0,-0.016 0,-0.031 0,-0.047 0.509,0.283 1.092,0.453 1.71,0.473 C 2.236,7.576 1.569,6.422 1.569,5.111 1.569,4.42 1.755,3.771 2.081,3.213 3.942,5.498 6.725,7 9.862,7.158 9.798,6.881 9.765,6.594 9.765,6.297 c 0,-2.084 1.689,-3.773 3.774,-3.773 1.086,0 2.067,0.457 2.756,1.191 0.859,-0.17 1.667,-0.484 2.397,-0.916 C 18.41,3.68 17.811,4.42 17.032,4.887 17.796,4.795 18.522,4.594 19.2,4.293 18.694,5.051 18.054,5.715 17.316,6.246 Z"
+         id="path66723"
+         inkscape:connector-curvature="0" />
+    </symbol>
+    <symbol
+       id="picasa">
+      <title
+         id="title66591">Picasa</title>
+      <path
+         d="M 5.808,1.823 C 2.719,3.411 0.8,6.544 0.8,10.021 c 0,0.633 0.08,1.275 0.221,1.918 L 8.97,4.7 C 8.122,3.929 5.894,1.901 5.808,1.823 Z M 13.793,1.626 C 12.593,1.081 11.317,0.8 9.999,0.8 9.065,0.8 8.144,0.956 7.25,1.241 l 6.543,5.951 z m 1.399,0.812 v 10.617 h 3.485 C 19.02,12.073 19.199,11.051 19.199,10.02 19.2,6.987 17.677,4.148 15.192,2.438 Z M 1.463,13.429 c 0.674,1.693 1.857,3.15 3.368,4.184 v -7.25 l -2.045,1.861 c -0.698,0.634 -1.28,1.166 -1.323,1.205 z m 4.767,4.996 c 0.935,0.422 1.913,0.682 2.92,0.775 h 1.689 c 3.019,-0.281 5.727,-2.068 7.199,-4.744 H 6.23 Z"
+         id="path66593"
+         inkscape:connector-curvature="0" />
+    </symbol>
+    <symbol
+       viewBox="0 0 24 24"
+       id="ic_place_24px">
+      <path
+         d="M 12,2 C 8.13,2 5,5.13 5,9 c 0,5.25 7,13 7,13 0,0 7,-7.75 7,-13 0,-3.87 -3.13,-7 -7,-7 z m 0,9.5 a 2.5,2.5 0 0 1 0,-5 2.5,2.5 0 0 1 0,5 z"
+         id="path66981"
+         inkscape:connector-curvature="0" />
+    </symbol>
+    <symbol
+       viewBox="0 0 24 24"
+       id="ic_person_24px">
+      <path
+         d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
+         id="path74672" />
+    </symbol>
+    <symbol
+       id="icon-arrow-up-alt1"
+       viewBox="0 0 1024 1024">
+      <title
+         id="title77931">arrow-up-alt1</title>
+      <path
+         d="M512 1024c282.752 0 512-229.248 512-512 0-282.784-229.248-512-512-512-282.784 0-512 229.216-512 512 0 282.752 229.216 512 512 512zM512 256l256 256h-192v256h-128v-256h-192l256-256z"
+         id="path77933" />
+    </symbol>
+    <symbol
+       id="icon-arrow-down"
+       viewBox="0 0 1024 1024">
+      <title
+         id="title77941">arrow-down</title>
+      <path
+         d="M384 0v512l-192-192-192 192 512 512 512-512-192-192-192 192v-512z"
+         id="path77943" />
+    </symbol>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="3.8342838"
+     inkscape:cx="1076.0706"
+     inkscape:cy="6337.948"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer4"
+     showgrid="false"
+     units="px"
+     inkscape:window-width="1920"
+     inkscape:window-height="1057"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:snap-global="true"
+     inkscape:snap-bbox="true"
+     inkscape:bbox-paths="true"
+     inkscape:bbox-nodes="true"
+     inkscape:snap-bbox-edge-midpoints="true"
+     inkscape:snap-bbox-midpoints="true"
+     inkscape:object-paths="true"
+     inkscape:snap-intersection-paths="true"
+     inkscape:snap-smooth-nodes="true"
+     inkscape:snap-midpoints="true"
+     inkscape:snap-object-midpoints="true"
+     inkscape:snap-center="true"
+     inkscape:snap-text-baseline="true"
+     inkscape:snap-page="true"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     showguides="false"
+     inkscape:guide-bbox="true">
+    <sodipodi:guide
+       inkscape:locked="false"
+       id="guide1851"
+       orientation="1000.0001,0"
+       position="283.10417,1698.625" />
+    <sodipodi:guide
+       inkscape:locked="false"
+       id="guide1855"
+       orientation="-1000.0001,0"
+       position="285.75001,1434.0416" />
+    <sodipodi:guide
+       inkscape:locked="false"
+       id="guide1859"
+       orientation="1000.0001,0"
+       position="288.39584,1698.625" />
+    <sodipodi:guide
+       inkscape:locked="false"
+       id="guide1863"
+       orientation="-1000.0001,0"
+       position="291.04167,1434.0416" />
+    <sodipodi:guide
+       inkscape:locked="false"
+       id="guide1867"
+       orientation="1000.0001,0"
+       position="256.64584,1698.625" />
+    <sodipodi:guide
+       inkscape:locked="false"
+       id="guide1871"
+       orientation="-1000.0001,0"
+       position="259.29168,1434.0416" />
+    <sodipodi:guide
+       inkscape:locked="false"
+       id="guide1875"
+       orientation="1000.0001,0"
+       position="261.93751,1698.625" />
+    <sodipodi:guide
+       inkscape:locked="false"
+       id="guide1879"
+       orientation="-1000.0001,0"
+       position="264.58334,1434.0416" />
+    <sodipodi:guide
+       inkscape:locked="false"
+       id="guide1883"
+       orientation="1000.0001,0"
+       position="203.72918,1698.625" />
+    <sodipodi:guide
+       inkscape:locked="false"
+       id="guide1887"
+       orientation="-1000.0001,0"
+       position="206.37502,1434.0416" />
+    <sodipodi:guide
+       inkscape:locked="false"
+       id="guide1891"
+       orientation="1000.0001,0"
+       position="209.02085,1698.625" />
+    <sodipodi:guide
+       inkscape:locked="false"
+       id="guide1895"
+       orientation="-1000.0001,0"
+       position="211.66668,1434.0416" />
+    <sodipodi:guide
+       inkscape:locked="false"
+       id="guide1899"
+       orientation="1000.0001,0"
+       position="230.18751,1698.625" />
+    <sodipodi:guide
+       inkscape:locked="false"
+       id="guide1903"
+       orientation="-1000.0001,0"
+       position="232.83335,1434.0416" />
+    <sodipodi:guide
+       inkscape:locked="false"
+       id="guide1907"
+       orientation="1000.0001,0"
+       position="235.47918,1698.625" />
+    <sodipodi:guide
+       inkscape:locked="false"
+       id="guide1911"
+       orientation="-1000.0001,0"
+       position="238.12501,1434.0416" />
+    <sodipodi:guide
+       inkscape:locked="false"
+       id="guide1915"
+       orientation="1000.0001,0"
+       position="177.27084,1698.625" />
+    <sodipodi:guide
+       inkscape:locked="false"
+       id="guide1919"
+       orientation="-1000.0001,0"
+       position="179.91668,1434.0416" />
+    <sodipodi:guide
+       inkscape:locked="false"
+       id="guide1923"
+       orientation="1000.0001,0"
+       position="182.56251,1698.625" />
+    <sodipodi:guide
+       inkscape:locked="false"
+       id="guide1927"
+       orientation="-1000.0001,0"
+       position="185.20834,1434.0416" />
+    <sodipodi:guide
+       inkscape:locked="false"
+       id="guide1931"
+       orientation="1000.0001,0"
+       position="150.81251,1698.625" />
+    <sodipodi:guide
+       inkscape:locked="false"
+       id="guide1935"
+       orientation="-1000.0001,0"
+       position="153.45835,1434.0416" />
+    <sodipodi:guide
+       inkscape:locked="false"
+       id="guide1939"
+       orientation="1000.0001,0"
+       position="156.10418,1698.625" />
+    <sodipodi:guide
+       inkscape:locked="false"
+       id="guide1943"
+       orientation="-1000.0001,0"
+       position="158.75001,1434.0416" />
+    <sodipodi:guide
+       inkscape:locked="false"
+       id="guide1947"
+       orientation="1000.0001,0"
+       position="124.35418,1698.625" />
+    <sodipodi:guide
+       inkscape:locked="false"
+       id="guide1951"
+       orientation="-1000.0001,0"
+       position="127.00002,1434.0416" />
+    <sodipodi:guide
+       inkscape:locked="false"
+       id="guide1955"
+       orientation="1000.0001,0"
+       position="129.64585,1698.625" />
+    <sodipodi:guide
+       inkscape:locked="false"
+       id="guide1959"
+       orientation="-1000.0001,0"
+       position="132.29168,1434.0416" />
+    <sodipodi:guide
+       inkscape:locked="false"
+       id="guide1963"
+       orientation="1000.0001,0"
+       position="97.895845,1698.625" />
+    <sodipodi:guide
+       inkscape:locked="false"
+       id="guide1967"
+       orientation="-1000.0001,0"
+       position="100.54168,1434.0416" />
+    <sodipodi:guide
+       inkscape:locked="false"
+       id="guide1971"
+       orientation="1000.0001,0"
+       position="103.18751,1698.625" />
+    <sodipodi:guide
+       inkscape:locked="false"
+       id="guide1975"
+       orientation="-1000.0001,0"
+       position="105.83334,1434.0416" />
+    <sodipodi:guide
+       inkscape:locked="false"
+       id="guide1979"
+       orientation="1000.0001,0"
+       position="71.437516,1698.625" />
+    <sodipodi:guide
+       inkscape:locked="false"
+       id="guide1983"
+       orientation="-1000.0001,0"
+       position="74.08335,1434.0416" />
+    <sodipodi:guide
+       inkscape:locked="false"
+       id="guide1987"
+       orientation="1000.0001,0"
+       position="76.729182,1698.625" />
+    <sodipodi:guide
+       inkscape:locked="false"
+       id="guide1991"
+       orientation="-1000.0001,0"
+       position="79.375016,1434.0416" />
+    <sodipodi:guide
+       inkscape:locked="false"
+       id="guide1995"
+       orientation="1000.0001,0"
+       position="44.979179,1698.625" />
+    <sodipodi:guide
+       inkscape:locked="false"
+       id="guide1999"
+       orientation="-1000.0001,0"
+       position="47.625013,1434.0416" />
+    <sodipodi:guide
+       inkscape:locked="false"
+       id="guide2003"
+       orientation="1000.0001,0"
+       position="50.270845,1698.625" />
+    <sodipodi:guide
+       inkscape:locked="false"
+       id="guide2007"
+       orientation="-1000.0001,0"
+       position="52.91668,1434.0416" />
+    <sodipodi:guide
+       inkscape:locked="false"
+       id="guide2011"
+       orientation="1000.0001,0"
+       position="18.520847,1698.625" />
+    <sodipodi:guide
+       inkscape:locked="false"
+       id="guide2015"
+       orientation="-1000.0001,0"
+       position="21.166681,1434.0416" />
+    <sodipodi:guide
+       inkscape:locked="false"
+       id="guide2019"
+       orientation="1000.0001,0"
+       position="23.812513,1698.625" />
+    <sodipodi:guide
+       inkscape:locked="false"
+       id="guide2023"
+       orientation="-1000.0001,0"
+       position="26.458347,1434.0416" />
+    <sodipodi:guide
+       inkscape:locked="false"
+       id="guide2031"
+       orientation="-1000.0001,0"
+       position="309.56254,1434.0416" />
+    <sodipodi:guide
+       inkscape:locked="false"
+       id="guide2115"
+       orientation="1000.0001,0"
+       position="1.3221276e-05,1698.625" />
+    <sodipodi:guide
+       inkscape:locked="false"
+       id="guide927"
+       orientation="0,-136.71395"
+       position="-33.478547,1698.625" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata867">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>
+               image/svg+xml
+            </dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:groupmode="layer"
+     id="layer9"
+     inkscape:label="bg"
+     style="display:inline"
+     transform="translate(1.2121276e-5)"
+     sodipodi:insensitive="true">
+    <image
+       sodipodi:absref="/media/an/M12/software_tutorial/inkscape/web/oyster/img/home/seagulls14.jpg"
+       xlink:href="img/home/seagulls14.jpg"
+       y="2.1316282e-14"
+       x="-5.5000015e-07"
+       id="image83853"
+       preserveAspectRatio="none"
+       height="206.375"
+       width="309.5625"
+       style="stroke-width:0.82051283"
+       onclick="" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer1"
+     inkscape:label="logo"
+     style="display:inline"
+     transform="translate(1.2121276e-5)"
+     sodipodi:insensitive="true">
+    <image
+       sodipodi:absref="/media/an/M12/software_tutorial/inkscape/web/oyster/img/home/logo.png"
+       xlink:href="img/home/logo.png"
+       y="8.1019707"
+       x="6.3499999"
+       id="image83923"
+       preserveAspectRatio="none"
+       height="15.445946"
+       width="47.625"
+       style="stroke-width:2.05555558" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:14.06963921px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.26458335"
+       x="53.070705"
+       y="72.646759"
+       id="text83988"><tspan
+         sodipodi:role="line"
+         id="tspan83986"
+         x="53.070705"
+         y="72.646759"
+         style="font-weight:bold;font-size:12.69999981px;fill:#ffffff;stroke-width:0.26458335">A CREATIVE AGENCY</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:8.166852px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.26458335"
+       x="79.783646"
+       y="82.520592"
+       id="text83992"><tspan
+         sodipodi:role="line"
+         id="tspan83990"
+         x="79.783646"
+         y="82.520592"
+         style="font-weight:normal;font-size:4.93888903px;fill:#ffffff;stroke-width:0.26458335">Design • Web • Marketing • Video</tspan></text>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="text"
+     style="display:inline"
+     transform="translate(1.2121276e-5)">
+    <rect
+       y="1535.3771"
+       x="-1.2121276e-05"
+       height="140.7583"
+       width="309.5625"
+       id="rect84506"
+       style="display:inline;opacity:1;vector-effect:none;fill:#34454e;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.79374987;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+    <rect
+       style="display:inline;opacity:1;vector-effect:none;fill:#2ca7ca;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.79374987;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect84470"
+       width="309.5625"
+       height="57.679165"
+       x="-1.2121276e-05"
+       y="1477.6979" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:2.28288341px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#34454e;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="154.90329"
+       y="248.92522"
+       id="text84080"><tspan
+         sodipodi:role="line"
+         id="tspan84078"
+         x="156.28253"
+         y="248.92522"
+         style="font-weight:bold;font-size:12.17537975px;text-align:center;text-anchor:middle;fill:#34454e;fill-opacity:1;stroke-width:0.26458332">WE LOVE WHAT WE DO AND </tspan><tspan
+         sodipodi:role="line"
+         x="154.90329"
+         y="264.14444"
+         style="font-weight:bold;font-size:12.17537975px;text-align:center;text-anchor:middle;fill:#34454e;fill-opacity:1;stroke-width:0.26458332"
+         id="tspan84082">WE'RE PROUD OF OUR RESULTS</tspan></text>
+    <text
+       id="text84092"
+       y="292.87842"
+       x="154.66586"
+       style="font-style:normal;font-weight:normal;font-size:1.15484655px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#34454e;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       xml:space="preserve"><tspan
+         id="tspan84090"
+         style="font-weight:bold;font-size:6.15918207px;text-align:center;text-anchor:middle;fill:#34454e;fill-opacity:1;stroke-width:0.26458332"
+         y="292.87842"
+         x="154.66586"
+         sodipodi:role="line">MARKETING - AT THE HEART OF ALL WE DO</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:2.02212214px;line-height:1.75;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#999999;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="154.6835"
+       y="308.85156"
+       id="text84098"><tspan
+         sodipodi:role="line"
+         id="tspan84096"
+         x="155.06198"
+         y="308.85156"
+         style="font-size:3.3702035px;line-height:1.75;text-align:center;text-anchor:middle;fill:#999999;fill-opacity:1;stroke-width:0.26458332">Oyster provides marketing solutions that deliver great returns on investment. Whether it’s crafting an individual direct mail campaign, launching a new product to market or planning a fully </tspan><tspan
+         sodipodi:role="line"
+         x="155.062"
+         y="314.74942"
+         style="font-size:3.3702035px;line-height:1.75;text-align:center;text-anchor:middle;fill:#999999;fill-opacity:1;stroke-width:0.26458332"
+         id="tspan84100">integrated marketing solution, you’ll always find us innovative and effective. Our focus is always to add value and deliver great returns on investment: a policy that keeps us sharp, </tspan><tspan
+         sodipodi:role="line"
+         x="154.6835"
+         y="320.64728"
+         style="font-size:3.3702035px;line-height:1.75;text-align:center;text-anchor:middle;fill:#999999;fill-opacity:1;stroke-width:0.26458332"
+         id="tspan84102">experienced and informed.</tspan></text>
+    <image
+       sodipodi:absref="/media/an/M12/software_tutorial/inkscape/web/oyster/img/home/home-brand-icon.png"
+       xlink:href="img/home/home-brand-icon.png"
+       y="360.32416"
+       x="177.79128"
+       id="image84112"
+       preserveAspectRatio="none"
+       height="33.337502"
+       width="33.337502" />
+    <image
+       sodipodi:absref="/media/an/M12/software_tutorial/inkscape/web/oyster/img/home/home-graphic-design-icon.png"
+       xlink:href="img/home/home-graphic-design-icon.png"
+       y="360.98563"
+       x="20.506697"
+       id="image84123"
+       preserveAspectRatio="none"
+       height="32.014584"
+       width="36.777084" />
+    <image
+       sodipodi:absref="/media/an/M12/software_tutorial/inkscape/web/oyster/img/home/home-web-ux-icon.png"
+       xlink:href="img/home/home-web-ux-icon.png"
+       y="362.04395"
+       x="100.08513"
+       id="image84134"
+       preserveAspectRatio="none"
+       height="29.897917"
+       width="33.337502" />
+    <image
+       sodipodi:absref="/media/an/M12/software_tutorial/inkscape/web/oyster/img/home/oyster-video-icon.png"
+       xlink:href="img/home/oyster-video-icon.png"
+       y="360.13287"
+       x="255.33571"
+       id="image84145"
+       preserveAspectRatio="none"
+       height="33.720097"
+       width="33.720097"
+       style="stroke-width:1.33912897" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:2.11666656px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#34454e;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="6.7312727"
+       y="418.48376"
+       id="text84173"><tspan
+         sodipodi:role="line"
+         id="tspan84171"
+         x="6.7312727"
+         y="418.48376"
+         style="font-weight:bold;font-size:6.3499999px;line-height:1.75;fill:#34454e;fill-opacity:1;stroke-width:0.26458332">GRAPHIC DESIGN</tspan><tspan
+         sodipodi:role="line"
+         x="6.7312727"
+         y="423.75427"
+         style="font-size:3.49250007px;line-height:1.75;fill:#34454e;fill-opacity:1;stroke-width:0.26458332"
+         id="tspan84175" /><tspan
+         sodipodi:role="line"
+         x="6.7312727"
+         y="428.25748"
+         style="font-size:3.17499995px;line-height:1.75;fill:#999999;fill-opacity:1;stroke-width:0.26458332"
+         id="tspan84196">From the very first day we opened our </tspan><tspan
+         sodipodi:role="line"
+         x="6.7312727"
+         y="433.81372"
+         style="font-size:3.17499995px;line-height:1.75;fill:#999999;fill-opacity:1;stroke-width:0.26458332"
+         id="tspan84180">doors in 2000 we have held great design </tspan><tspan
+         sodipodi:role="line"
+         x="6.7312727"
+         y="439.36996"
+         style="font-size:3.17499995px;line-height:1.75;fill:#999999;fill-opacity:1;stroke-width:0.26458332"
+         id="tspan84182">and impactful messaging as foundations </tspan><tspan
+         sodipodi:role="line"
+         x="6.7312727"
+         y="444.92621"
+         style="font-size:3.17499995px;line-height:1.75;fill:#999999;fill-opacity:1;stroke-width:0.26458332"
+         id="tspan84184">around which the agency has been built. </tspan><tspan
+         sodipodi:role="line"
+         x="6.7312727"
+         y="450.48248"
+         style="font-size:3.17499995px;line-height:1.75;fill:#999999;fill-opacity:1;stroke-width:0.26458332"
+         id="tspan84186">Whether it's new campaigns in retail, direct </tspan><tspan
+         sodipodi:role="line"
+         x="6.7312727"
+         y="456.03873"
+         style="font-size:3.17499995px;line-height:1.75;fill:#999999;fill-opacity:1;stroke-width:0.26458332"
+         id="tspan84188">mail or new product launches, annual or </tspan><tspan
+         sodipodi:role="line"
+         x="6.7312727"
+         y="461.59497"
+         style="font-size:3.17499995px;line-height:1.75;fill:#999999;fill-opacity:1;stroke-width:0.26458332"
+         id="tspan84190">impact reports, prospectuses or brochures, </tspan><tspan
+         sodipodi:role="line"
+         x="6.7312727"
+         y="467.15121"
+         style="font-size:3.17499995px;line-height:1.75;fill:#999999;fill-opacity:1;stroke-width:0.26458332"
+         id="tspan84192">we can provide full delivery from creative </tspan><tspan
+         sodipodi:role="line"
+         x="6.7312727"
+         y="472.70746"
+         style="font-size:3.17499995px;line-height:1.75;fill:#34454e;fill-opacity:1;stroke-width:0.26458332"
+         id="tspan84194"><tspan
+   style="fill:#999999"
+   id="tspan84447">concepts and copy to final delivery.</tspan> </tspan></text>
+    <text
+       id="text84220"
+       y="418.48376"
+       x="82.83242"
+       style="font-style:normal;font-weight:normal;font-size:2.11666656px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#34454e;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       xml:space="preserve"><tspan
+         id="tspan84202"
+         style="font-weight:bold;font-size:6.3499999px;line-height:1.75;fill:#34454e;fill-opacity:1;stroke-width:0.26458332"
+         y="418.48376"
+         x="82.83242"
+         sodipodi:role="line">WEB &amp; UX</tspan><tspan
+         style="font-size:3.49250007px;line-height:1.75;fill:#34454e;fill-opacity:1;stroke-width:0.26458332"
+         y="423.75427"
+         x="82.83242"
+         sodipodi:role="line"
+         id="tspan84228" /><tspan
+         id="tspan84216"
+         style="font-size:3.17499995px;line-height:1.75;fill:#999999;fill-opacity:1;stroke-width:0.26458332"
+         y="428.25748"
+         x="82.83242"
+         sodipodi:role="line">Oyster has a specialist in-house team of </tspan><tspan
+         style="font-size:3.17499995px;line-height:1.75;fill:#999999;fill-opacity:1;stroke-width:0.26458332"
+         y="433.81372"
+         x="82.83242"
+         sodipodi:role="line"
+         id="tspan84269">creative web designers, UX specialists and </tspan><tspan
+         style="font-size:3.17499995px;line-height:1.75;fill:#999999;fill-opacity:1;stroke-width:0.26458332"
+         y="439.36996"
+         x="82.83242"
+         sodipodi:role="line"
+         id="tspan84271">highly technical developers. From website </tspan><tspan
+         style="font-size:3.17499995px;line-height:1.75;fill:#999999;fill-opacity:1;stroke-width:0.26458332"
+         y="444.92621"
+         x="82.83242"
+         sodipodi:role="line"
+         id="tspan84273">design and development to apps and email </tspan><tspan
+         style="font-size:3.17499995px;line-height:1.75;fill:#999999;fill-opacity:1;stroke-width:0.26458332"
+         y="450.48248"
+         x="82.83242"
+         sodipodi:role="line"
+         id="tspan84275">marketing campaigns, our team combines </tspan><tspan
+         style="font-size:3.17499995px;line-height:1.75;fill:#999999;fill-opacity:1;stroke-width:0.26458332"
+         y="456.03873"
+         x="82.83242"
+         sodipodi:role="line"
+         id="tspan84277">creativity, sound technical know-how and a </tspan><tspan
+         style="font-size:3.17499995px;line-height:1.75;fill:#999999;fill-opacity:1;stroke-width:0.26458332"
+         y="461.59497"
+         x="82.83242"
+         sodipodi:role="line"
+         id="tspan84279">considered marketing approach to deliver </tspan><tspan
+         id="tspan84218"
+         style="font-size:3.17499995px;line-height:1.75;fill:#999999;fill-opacity:1;stroke-width:0.26458332"
+         y="467.15121"
+         x="82.83242"
+         sodipodi:role="line">exceptional digital solutions. </tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:2.11666656px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#34454e;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="159.49767"
+       y="418.40121"
+       id="text84307"><tspan
+         sodipodi:role="line"
+         x="159.49767"
+         y="418.40121"
+         style="font-weight:bold;font-size:6.3499999px;line-height:1.75;fill:#34454e;fill-opacity:1;stroke-width:0.26458332"
+         id="tspan84291">BRAND</tspan><tspan
+         sodipodi:role="line"
+         x="159.49767"
+         y="423.67172"
+         style="font-size:3.49250007px;line-height:1.75;fill:#34454e;fill-opacity:1;stroke-width:0.26458332"
+         id="tspan84315" /><tspan
+         sodipodi:role="line"
+         x="159.49767"
+         y="428.17493"
+         style="font-size:3.17499995px;line-height:1.75;fill:#999999;fill-opacity:1;stroke-width:0.26458332"
+         id="tspan84305">Your brand says a lot about who you are </tspan><tspan
+         sodipodi:role="line"
+         x="159.49767"
+         y="433.73117"
+         style="font-size:3.17499995px;line-height:1.75;fill:#999999;fill-opacity:1;stroke-width:0.26458332"
+         id="tspan84348">and how people will perceive your products </tspan><tspan
+         sodipodi:role="line"
+         x="159.49767"
+         y="439.28741"
+         style="font-size:3.17499995px;line-height:1.75;fill:#999999;fill-opacity:1;stroke-width:0.26458332"
+         id="tspan84350">and services. Brand is the foundation for all </tspan><tspan
+         sodipodi:role="line"
+         x="159.49767"
+         y="444.84366"
+         style="font-size:3.17499995px;line-height:1.75;fill:#999999;fill-opacity:1;stroke-width:0.26458332"
+         id="tspan84352">your marketing and communications. </tspan><tspan
+         sodipodi:role="line"
+         x="159.49767"
+         y="450.39993"
+         style="font-size:3.17499995px;line-height:1.75;fill:#999999;fill-opacity:1;stroke-width:0.26458332"
+         id="tspan84354">Understanding how brand works, how to </tspan><tspan
+         sodipodi:role="line"
+         x="159.49767"
+         y="455.95618"
+         style="font-size:3.17499995px;line-height:1.75;fill:#999999;fill-opacity:1;stroke-width:0.26458332"
+         id="tspan84356">use and control it and what makes a strong </tspan><tspan
+         sodipodi:role="line"
+         x="159.49767"
+         y="461.51242"
+         style="font-size:3.17499995px;line-height:1.75;fill:#999999;fill-opacity:1;stroke-width:0.26458332"
+         id="tspan84358">brand for your organisation enables us to </tspan><tspan
+         sodipodi:role="line"
+         x="159.49767"
+         y="467.06866"
+         style="font-size:3.17499995px;line-height:1.75;fill:#999999;fill-opacity:1;stroke-width:0.26458332"
+         id="tspan84360">deliver very powerful solutions.</tspan></text>
+    <text
+       id="text84382"
+       y="418.48376"
+       x="236.53256"
+       style="font-style:normal;font-weight:normal;font-size:2.11666656px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#34454e;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       xml:space="preserve"><tspan
+         id="tspan84366"
+         style="font-weight:bold;font-size:6.3499999px;line-height:1.75;fill:#34454e;fill-opacity:1;stroke-width:0.26458332"
+         y="418.48376"
+         x="236.53256"
+         sodipodi:role="line">VIDEO</tspan><tspan
+         style="font-size:3.49250007px;line-height:1.75;fill:#34454e;fill-opacity:1;stroke-width:0.26458332"
+         y="423.75427"
+         x="236.53256"
+         sodipodi:role="line"
+         id="tspan84390" /><tspan
+         id="tspan84380"
+         style="font-size:3.17499995px;line-height:1.75;fill:#999999;fill-opacity:1;stroke-width:0.26458332"
+         y="428.25748"
+         x="236.53256"
+         sodipodi:role="line">Video is a powerful medium to convey a lot </tspan><tspan
+         style="font-size:3.17499995px;line-height:1.75;fill:#999999;fill-opacity:1;stroke-width:0.26458332"
+         y="433.81372"
+         x="236.53256"
+         sodipodi:role="line"
+         id="tspan84429">of information quickly and effectively. Video </tspan><tspan
+         style="font-size:3.17499995px;line-height:1.75;fill:#999999;fill-opacity:1;stroke-width:0.26458332"
+         y="439.36996"
+         x="236.53256"
+         sodipodi:role="line"
+         id="tspan84431">can change how you engage with your </tspan><tspan
+         style="font-size:3.17499995px;line-height:1.75;fill:#999999;fill-opacity:1;stroke-width:0.26458332"
+         y="444.92621"
+         x="236.53256"
+         sodipodi:role="line"
+         id="tspan84433">audience and customers, enriching your </tspan><tspan
+         style="font-size:3.17499995px;line-height:1.75;fill:#999999;fill-opacity:1;stroke-width:0.26458332"
+         y="450.48248"
+         x="236.53256"
+         sodipodi:role="line"
+         id="tspan84435">message and opening up new channels of </tspan><tspan
+         style="font-size:3.17499995px;line-height:1.75;fill:#999999;fill-opacity:1;stroke-width:0.26458332"
+         y="456.03873"
+         x="236.53256"
+         sodipodi:role="line"
+         id="tspan84437">communication. There's a lot to think about </tspan><tspan
+         style="font-size:3.17499995px;line-height:1.75;fill:#999999;fill-opacity:1;stroke-width:0.26458332"
+         y="461.59497"
+         x="236.53256"
+         sodipodi:role="line"
+         id="tspan84439">including scripting, directing, production: we </tspan><tspan
+         style="font-size:3.17499995px;line-height:1.75;fill:#999999;fill-opacity:1;stroke-width:0.26458332"
+         y="467.15121"
+         x="236.53256"
+         sodipodi:role="line"
+         id="tspan84441">can help to reduce streamline the process </tspan><tspan
+         style="font-size:3.17499995px;line-height:1.75;fill:#999999;fill-opacity:1;stroke-width:0.26458332"
+         y="472.70746"
+         x="236.53256"
+         sodipodi:role="line"
+         id="tspan84443">and maximise the benefits.</tspan></text>
+    <rect
+       style="display:inline;opacity:1;vector-effect:none;fill:#2ca7ca;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.79374987;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect208732"
+       width="52.61211"
+       height="1708.4775"
+       x="400.76083"
+       y="3.414156"
+       onmouseover=""
+       onmouseout=";InkWeb.setAtt({el:['image208714'], att:'visibility', val:'visible'});InkWeb.setAtt({el:['rect208732'], att:'cursor', val:'pointer'})"
+       onload=""
+       onfocusout="" />
+    <g
+       id="g84486"
+       transform="translate(-11.14673,-25.4)">
+      <rect
+         y="507.58548"
+         x="18.092844"
+         height="14.552083"
+         width="39.6875"
+         id="rect84453"
+         style="opacity:1;vector-effect:none;fill:#f6f6f6;fill-opacity:1;fill-rule:nonzero;stroke:#2ca7ca;stroke-width:0.26458332;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <text
+         id="text84463"
+         y="516.15619"
+         x="23.855938"
+         style="font-style:normal;font-weight:normal;font-size:3.60922718px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#2ca7ca;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+         xml:space="preserve"><tspan
+           style="font-size:3.52777767px;fill:#2ca7ca;fill-opacity:1;stroke-width:0.26458332"
+           y="516.15619"
+           x="23.855938"
+           id="tspan84461"
+           sodipodi:role="line">GRAPHIC DESIGN</tspan></text>
+    </g>
+    <g
+       id="g84491"
+       transform="translate(-12.592891,-25.4)">
+      <rect
+         style="opacity:1;vector-effect:none;fill:#f6f6f6;fill-opacity:1;fill-rule:nonzero;stroke:#2ca7ca;stroke-width:0.26458332;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         id="rect84465"
+         width="27.858728"
+         height="14.552083"
+         x="95.678253"
+         y="507.58548" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:3.60922718px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#2ca7ca;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+         x="101.59438"
+         y="516.15619"
+         id="text84469"><tspan
+           sodipodi:role="line"
+           id="tspan84467"
+           x="101.59438"
+           y="516.15619"
+           style="font-size:3.52777767px;fill:#2ca7ca;fill-opacity:1;stroke-width:0.26458332">WEB &amp; UX</tspan></text>
+    </g>
+    <g
+       id="g84496"
+       transform="translate(-13.801868,-25.4)">
+      <rect
+         y="507.58548"
+         x="173.42865"
+         height="14.552083"
+         width="23.164877"
+         id="rect84471"
+         style="opacity:1;vector-effect:none;fill:#f6f6f6;fill-opacity:1;fill-rule:nonzero;stroke:#2ca7ca;stroke-width:0.26458332;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <text
+         id="text84475"
+         y="516.15619"
+         x="179.10358"
+         style="font-style:normal;font-weight:normal;font-size:3.60922718px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#2ca7ca;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+         xml:space="preserve"><tspan
+           style="font-size:3.52777767px;fill:#2ca7ca;fill-opacity:1;stroke-width:0.26458332"
+           y="516.15619"
+           x="179.10358"
+           id="tspan84473"
+           sodipodi:role="line">BRAND</tspan></text>
+    </g>
+    <g
+       id="g84501"
+       transform="translate(-14.548766,-25.4)">
+      <rect
+         style="opacity:1;vector-effect:none;fill:#f6f6f6;fill-opacity:1;fill-rule:nonzero;stroke:#2ca7ca;stroke-width:0.26458332;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         id="rect84477"
+         width="21.845448"
+         height="14.552083"
+         x="251.18187"
+         y="507.58548" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:3.60922718px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#2ca7ca;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+         x="257.11707"
+         y="516.15619"
+         id="text84481"><tspan
+           sodipodi:role="line"
+           id="tspan84479"
+           x="257.11707"
+           y="516.15619"
+           style="font-size:3.52777767px;fill:#2ca7ca;fill-opacity:1;stroke-width:0.26458332">VIDEO</tspan></text>
+    </g>
+    <text
+       id="text83939"
+       y="853.75311"
+       x="53.419983"
+       style="font-style:normal;font-weight:normal;font-size:2.28288341px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#34454e;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       xml:space="preserve"><tspan
+         id="tspan83937"
+         style="font-weight:bold;font-size:12.17537975px;text-align:center;text-anchor:middle;fill:#34454e;fill-opacity:1;stroke-width:0.26458332"
+         y="853.75311"
+         x="53.419983"
+         sodipodi:role="line">WE ARE OYSTER</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:2.11666656px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="1.0479035"
+       y="875.25317"
+       id="text83945"><tspan
+         sodipodi:role="line"
+         id="tspan83943"
+         x="1.0479035"
+         y="875.25317"
+         style="font-size:5.99722195px;fill:#999999;stroke-width:0.26458332">We have a great team with a real passion for the work we do, and the experience and expertise to achieve great </tspan><tspan
+         sodipodi:role="line"
+         x="1.0479035"
+         y="882.74969"
+         style="font-size:5.99722195px;fill:#999999;stroke-width:0.26458332"
+         id="tspan83947">returns on your investment every time. We enjoy working with our clients and have built long and productive </tspan><tspan
+         sodipodi:role="line"
+         x="1.0479035"
+         y="890.24622"
+         style="font-size:5.99722195px;fill:#999999;stroke-width:0.26458332"
+         id="tspan83949">relationships – we'd love to talk to you.</tspan></text>
+    <text
+       id="text83975"
+       y="925.21838"
+       x="1.1166946"
+       style="font-style:normal;font-weight:normal;font-size:2.26370811px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#34454e;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       xml:space="preserve"><tspan
+         id="tspan83955"
+         style="font-size:3.35138893px;line-height:1.75;fill:#999999;fill-opacity:1;stroke-width:0.26458332"
+         y="925.21838"
+         x="1.1166946"
+         sodipodi:role="line">Oyster is a full service agency based in Emsworth, on the edge of Chichester harbour on the </tspan><tspan
+         style="font-size:3.35138893px;line-height:1.75;fill:#999999;fill-opacity:1;stroke-width:0.26458332"
+         y="931.08331"
+         x="1.1166946"
+         sodipodi:role="line"
+         id="tspan84057">Hampshire and West Sussex border. We love working with a wide range of clients – big and </tspan><tspan
+         style="font-size:3.35138893px;line-height:1.75;fill:#999999;fill-opacity:1;stroke-width:0.26458332"
+         y="936.94824"
+         x="1.1166946"
+         sodipodi:role="line"
+         id="tspan84059">small, charitable and private sector. We've built our success on intelligent campaigns and </tspan><tspan
+         style="font-size:3.35138893px;line-height:1.75;fill:#999999;fill-opacity:1;stroke-width:0.26458332"
+         y="942.81317"
+         x="1.1166946"
+         sodipodi:role="line"
+         id="tspan84061">messaging with a large dash of creative flair.</tspan><tspan
+         style="font-size:3.35138893px;line-height:1.75;fill:#999999;fill-opacity:1;stroke-width:0.26458332"
+         y="946.74713"
+         x="1.1166946"
+         sodipodi:role="line"
+         id="tspan83982" /><tspan
+         id="tspan83973"
+         style="font-size:3.35138893px;line-height:1.75;fill:#999999;fill-opacity:1;stroke-width:0.26458332"
+         y="951.50775"
+         x="1.1166946"
+         sodipodi:role="line">Whether you're considering a fully integrated marketing solution, individual income generating </tspan><tspan
+         style="font-size:3.35138893px;line-height:1.75;fill:#999999;fill-opacity:1;stroke-width:0.26458332"
+         y="957.37268"
+         x="1.1166946"
+         sodipodi:role="line"
+         id="tspan84063">campaigns, modern website design and development, logic and build, or eye-catching </tspan><tspan
+         style="font-size:3.35138893px;line-height:1.75;fill:#999999;fill-opacity:1;stroke-width:0.26458332"
+         y="963.23761"
+         x="1.1166946"
+         sodipodi:role="line"
+         id="tspan84065">publications and reports, Oyster gives you the edge. </tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:2.11666656px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#34454e;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="1.0831807"
+       y="913.02429"
+       id="text84041"><tspan
+         sodipodi:role="line"
+         id="tspan84031"
+         x="1.0831807"
+         y="913.02429"
+         style="font-weight:bold;font-size:6.3499999px;line-height:1.75;fill:#34454e;fill-opacity:1;stroke-width:0.26458332">WHO WE ARE</tspan><tspan
+         sodipodi:role="line"
+         x="1.0831807"
+         y="918.2948"
+         style="font-size:3.17499995px;line-height:1.75;fill:#999999;fill-opacity:1;stroke-width:0.26458332"
+         id="tspan84039" /></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:2.26370811px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#34454e;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="162.32451"
+       y="925.21838"
+       id="text84083"><tspan
+         id="tspan84081"
+         sodipodi:role="line"
+         x="162.32451"
+         y="925.21838"
+         style="font-size:3.35138893px;line-height:1.75;fill:#999999;fill-opacity:1;stroke-width:0.26458332">We've got a great team who deliver design, creative, copy, web development, e-marketing and </tspan><tspan
+         sodipodi:role="line"
+         x="162.32451"
+         y="931.08331"
+         style="font-size:3.35138893px;line-height:1.75;fill:#999999;fill-opacity:1;stroke-width:0.26458332"
+         id="tspan84129">marketing strategy that gets great results. Oyster gives you the expertise you need at every </tspan><tspan
+         sodipodi:role="line"
+         x="162.32451"
+         y="936.94824"
+         style="font-size:3.35138893px;line-height:1.75;fill:#999999;fill-opacity:1;stroke-width:0.26458332"
+         id="tspan84131">stage of your project. We work in an open plan environment and regularly share new ideas, so </tspan><tspan
+         sodipodi:role="line"
+         x="162.32451"
+         y="942.81317"
+         style="font-size:3.35138893px;line-height:1.75;fill:#999999;fill-opacity:1;stroke-width:0.26458332"
+         id="tspan84133">you won't only get the input of your immediate account team but the whole team's input at </tspan><tspan
+         sodipodi:role="line"
+         x="162.32451"
+         y="948.6781"
+         style="font-size:3.35138893px;line-height:1.75;fill:#999999;fill-opacity:1;stroke-width:0.26458332"
+         id="tspan84135">critical project stages.</tspan></text>
+    <text
+       id="text84089"
+       y="913.02429"
+       x="162.02518"
+       style="font-style:normal;font-weight:normal;font-size:2.11666656px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#34454e;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       xml:space="preserve"><tspan
+         id="tspan84087"
+         style="font-weight:bold;font-size:6.3499999px;line-height:1.75;fill:#34454e;fill-opacity:1;stroke-width:0.26458332"
+         y="913.02429"
+         x="162.02518"
+         sodipodi:role="line">OUR TEAM</tspan></text>
+    <text
+       id="text84147"
+       y="958.02686"
+       x="162.32451"
+       style="font-style:normal;font-weight:normal;font-size:2.26370811px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#2ca7ca;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       xml:space="preserve"><tspan
+         id="tspan84145"
+         style="font-size:3.35138893px;line-height:1.75;fill:#2ca7ca;fill-opacity:1;stroke-width:0.26458332"
+         y="958.02686"
+         x="162.32451"
+         sodipodi:role="line">Read more</tspan></text>
+    <rect
+       style="opacity:1;vector-effect:none;fill:#34454e;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.79375005;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect84313"
+       width="309.56247"
+       height="99.980431"
+       x="-3.0504486e-06"
+       y="1112.3083" />
+    <text
+       id="text84322"
+       y="1141.014"
+       x="154.34456"
+       style="font-style:normal;font-weight:normal;font-size:2.11666656px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#b3b3b3;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       xml:space="preserve"><tspan
+         style="font-size:7.05555534px;line-height:1.5;text-align:center;text-anchor:middle;fill:#b3b3b3;stroke-width:0.26458332"
+         y="1141.014"
+         x="155.13693"
+         id="tspan84316"
+         sodipodi:role="line">“I have been extremely pleased with the service that Oyster </tspan><tspan
+         style="font-size:7.05555534px;line-height:1.5;text-align:center;text-anchor:middle;fill:#b3b3b3;stroke-width:0.26458332"
+         y="1151.5974"
+         x="155.13693"
+         sodipodi:role="line"
+         id="tspan84335">provides. I was impressed by their ability to manage complex </tspan><tspan
+         style="font-size:7.05555534px;line-height:1.5;text-align:center;text-anchor:middle;fill:#b3b3b3;stroke-width:0.26458332"
+         y="1162.1807"
+         x="155.13693"
+         sodipodi:role="line"
+         id="tspan84337">processes within limited time, without compromising the quality of </tspan><tspan
+         style="font-size:7.05555534px;line-height:1.5;text-align:center;text-anchor:middle;fill:#b3b3b3;stroke-width:0.26458332"
+         y="1172.764"
+         x="154.34456"
+         sodipodi:role="line"
+         id="tspan84339">the deliverable.”</tspan><tspan
+         id="tspan84320"
+         style="font-size:7.05555534px;line-height:1.5;text-align:center;text-anchor:middle;fill:#b3b3b3;stroke-width:0.26458332"
+         y="1177.5018"
+         x="154.34456"
+         sodipodi:role="line" /></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:2.11666656px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#2ca7ca;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="55.621162"
+       y="1188.1384"
+       id="text84333"><tspan
+         sodipodi:role="line"
+         id="tspan84331"
+         x="55.621162"
+         y="1188.1384"
+         style="font-size:7.23194408px;fill:#2ca7ca;fill-opacity:1;stroke-width:0.26458332">Soria Bendoumia, Marketing Communications Manager, GE</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:2.28288341px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#34454e;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="154.87332"
+       y="1250.004"
+       id="text84343"><tspan
+         sodipodi:role="line"
+         x="154.87332"
+         y="1250.004"
+         style="font-weight:bold;font-size:12.17537975px;text-align:center;text-anchor:middle;fill:#34454e;fill-opacity:1;stroke-width:0.26458332"
+         id="tspan84341">JOURNAL</tspan></text>
+    <text
+       id="text84405"
+       y="1402.3906"
+       x="0.54751551"
+       style="font-style:normal;font-weight:normal;font-size:1.57169497px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#34454e;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       xml:space="preserve"><tspan
+         id="tspan84403"
+         style="font-weight:bold;font-size:4.58611107px;line-height:1.5;fill:#34454e;fill-opacity:1;stroke-width:0.26458332"
+         y="1402.3906"
+         x="0.54751551"
+         sodipodi:role="line">OYSTER UNVEILS NEW LOGO AND </tspan><tspan
+         style="font-weight:bold;font-size:4.58611107px;line-height:1.5;fill:#34454e;fill-opacity:1;stroke-width:0.26458332"
+         y="1409.2698"
+         x="0.54751551"
+         sodipodi:role="line"
+         id="tspan84411">ANIMATION FOR MILESTONES MUSEUM</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:1.57169497px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#34454e;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="106.38083"
+       y="1402.5099"
+       id="text84417"><tspan
+         id="tspan84415"
+         sodipodi:role="line"
+         x="106.38083"
+         y="1402.5099"
+         style="font-weight:bold;font-size:4.58611107px;line-height:1.5;fill:#34454e;fill-opacity:1;stroke-width:0.26458332">OYSTER NEW YEAR'S DAY OUT 2019: AN </tspan><tspan
+         sodipodi:role="line"
+         x="106.38083"
+         y="1409.389"
+         style="font-weight:bold;font-size:4.58611107px;line-height:1.5;fill:#34454e;fill-opacity:1;stroke-width:0.26458332"
+         id="tspan84421">ALPACA ADVENTURE</tspan></text>
+    <text
+       id="text84427"
+       y="1402.3906"
+       x="212.10869"
+       style="font-style:normal;font-weight:normal;font-size:1.57169497px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#34454e;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       xml:space="preserve"><tspan
+         id="tspan84425"
+         style="font-weight:bold;font-size:4.58611107px;line-height:1.5;fill:#34454e;fill-opacity:1;stroke-width:0.26458332"
+         y="1402.3906"
+         x="212.10869"
+         sodipodi:role="line">REINVIGORATING THE NEIGHBOURHOOD </tspan><tspan
+         style="font-weight:bold;font-size:4.58611107px;line-height:1.5;fill:#34454e;fill-opacity:1;stroke-width:0.26458332"
+         y="1409.2698"
+         x="212.10869"
+         sodipodi:role="line"
+         id="tspan84432">WATCH NETWORK</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:3.46119928px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#999999;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="0.21872663"
+       y="1416.0676"
+       id="text84442"><tspan
+         sodipodi:role="line"
+         id="tspan84440"
+         x="0.21872663"
+         y="1416.0676"
+         style="font-size:3.52777767px;line-height:1.75;fill:#999999;stroke-width:0.26458332">18th December 2019</tspan><tspan
+         sodipodi:role="line"
+         x="0.21872663"
+         y="1422.2412"
+         style="font-size:3.52777767px;line-height:1.75;fill:#999999;stroke-width:0.26458332"
+         id="tspan84444">In Brand</tspan></text>
+    <text
+       id="text84450"
+       y="1416.0676"
+       x="106.05204"
+       style="font-style:normal;font-weight:normal;font-size:3.46119928px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#999999;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       xml:space="preserve"><tspan
+         id="tspan84448"
+         style="font-size:3.52777767px;line-height:1.75;fill:#999999;stroke-width:0.26458332"
+         y="1416.0676"
+         x="106.05204"
+         sodipodi:role="line">17th December 2019</tspan><tspan
+         style="font-size:3.52777767px;line-height:1.75;fill:#999999;stroke-width:0.26458332"
+         y="1422.2412"
+         x="106.05204"
+         sodipodi:role="line"
+         id="tspan84454">In Oyster Journal</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:3.46119928px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#999999;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="212.12527"
+       y="1416.0676"
+       id="text84460"><tspan
+         id="tspan84458"
+         sodipodi:role="line"
+         x="212.12527"
+         y="1416.0676"
+         style="font-size:3.52777767px;line-height:1.75;fill:#999999;stroke-width:0.26458332">4th December 2019</tspan><tspan
+         sodipodi:role="line"
+         x="212.12527"
+         y="1422.2412"
+         style="font-size:3.52777767px;line-height:1.75;fill:#999999;stroke-width:0.26458332"
+         id="tspan84464">In Web Development</tspan></text>
+    <g
+       id="g84504"
+       transform="translate(-33.072926)">
+      <text
+         id="text84474"
+         y="1511.158"
+         x="154.22726"
+         style="font-style:normal;font-weight:normal;font-size:2.28288341px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#34454e;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+         xml:space="preserve"><tspan
+           id="tspan84472"
+           style="font-weight:bold;font-size:12.17537975px;text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke-width:0.26458332"
+           y="1511.158"
+           x="155.60651"
+           sodipodi:role="line">HOW CAN WE HELP YOU? </tspan></text>
+      <g
+         transform="translate(-381.0642,-22.377149)"
+         id="g84493">
+        <rect
+           y="1522.6969"
+           x="619.84412"
+           height="12.435416"
+           width="55.297916"
+           id="rect84479"
+           style="opacity:1;vector-effect:none;fill:#2ca7ca;fill-opacity:1;fill-rule:nonzero;stroke:#ffffff;stroke-width:0.26458329;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+        <text
+           id="text84483"
+           y="1530.6471"
+           x="631.16119"
+           style="font-style:normal;font-weight:normal;font-size:4.79050636px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+           xml:space="preserve"><tspan
+             style="font-weight:bold;font-size:4.6823988px;fill:#ffffff;fill-opacity:1;stroke-width:0.26458332"
+             y="1530.6471"
+             x="631.16119"
+             id="tspan84481"
+             sodipodi:role="line">GET IN TOUCH</tspan></text>
+      </g>
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:2.26370811px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#34454e;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="7.5609632"
+       y="1569.9948"
+       id="text84524"><tspan
+         id="tspan84522"
+         sodipodi:role="line"
+         x="7.5609632"
+         y="1569.9948"
+         style="font-size:3.35138893px;line-height:1.89999998;fill:#999999;fill-opacity:1;stroke-width:0.26458332">We’d love the opportunity to discuss your next project with you. </tspan><tspan
+         sodipodi:role="line"
+         x="7.5609632"
+         y="1576.3624"
+         style="font-size:3.35138893px;line-height:1.89999998;fill:#999999;fill-opacity:1;stroke-width:0.26458332"
+         id="tspan84569">Feel free to call our studio for an informal discussion or to </tspan><tspan
+         sodipodi:role="line"
+         x="7.5609632"
+         y="1582.73"
+         style="font-size:3.35138893px;line-height:1.89999998;fill:#999999;fill-opacity:1;stroke-width:0.26458332"
+         id="tspan84571">arrange a meeting with a member of our team. If you'd like to </tspan><tspan
+         sodipodi:role="line"
+         x="7.5609632"
+         y="1589.0977"
+         style="font-size:3.35138893px;line-height:1.89999998;fill:#999999;fill-opacity:1;stroke-width:0.26458332"
+         id="tspan84573">drop in, we're based in Emsworth, a pretty coastal village </tspan><tspan
+         sodipodi:role="line"
+         x="7.5609632"
+         y="1595.4653"
+         style="font-size:3.35138893px;line-height:1.89999998;fill:#999999;fill-opacity:1;stroke-width:0.26458332"
+         id="tspan84575">on Chichester Harbour, on the Hampshire and West Sussex </tspan><tspan
+         sodipodi:role="line"
+         x="7.5609632"
+         y="1601.8329"
+         style="font-size:3.35138893px;line-height:1.89999998;fill:#999999;fill-opacity:1;stroke-width:0.26458332"
+         id="tspan84577">border. Alternatively send your brief or tender documents via </tspan><tspan
+         sodipodi:role="line"
+         x="7.5609632"
+         y="1608.2006"
+         style="font-size:3.35138893px;line-height:1.89999998;fill:#999999;fill-opacity:1;stroke-width:0.26458332"
+         id="tspan84579">our contact form.</tspan></text>
+    <text
+       id="text84530"
+       y="1559.7812"
+       x="7.2147117"
+       style="font-style:normal;font-weight:normal;font-size:1.59489608px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       xml:space="preserve"><tspan
+         id="tspan84528"
+         style="font-weight:bold;font-size:4.76249981px;line-height:1.75;fill:#ffffff;fill-opacity:1;stroke-width:0.26458332"
+         y="1559.7812"
+         x="7.2147117"
+         sodipodi:role="line">LEARN MORE</tspan></text>
+    <text
+       id="text84595"
+       y="1569.8809"
+       x="114.35355"
+       style="font-style:normal;font-weight:normal;font-size:2.26370811px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#34454e;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       xml:space="preserve"><tspan
+         id="tspan84593"
+         style="font-size:3.35138893px;line-height:1.89999998;fill:#999999;fill-opacity:1;stroke-width:0.26458332"
+         y="1569.8809"
+         x="114.35355"
+         sodipodi:role="line">As they say, the proof is in the pudding. You can see our latest </tspan><tspan
+         style="font-size:3.35138893px;line-height:1.89999998;fill:#999999;fill-opacity:1;stroke-width:0.26458332"
+         y="1576.2485"
+         x="114.35355"
+         sodipodi:role="line"
+         id="tspan84628">client list and a broad selection of our work in our portfolio. If </tspan><tspan
+         style="font-size:3.35138893px;line-height:1.89999998;fill:#999999;fill-opacity:1;stroke-width:0.26458332"
+         y="1582.6161"
+         x="114.35355"
+         sodipodi:role="line"
+         id="tspan84630">you need any further information please get in touch.</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:1.59489608px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="114.10642"
+       y="1559.7812"
+       id="text84599"><tspan
+         sodipodi:role="line"
+         x="114.10642"
+         y="1559.7812"
+         style="font-weight:bold;font-size:4.76249981px;line-height:1.75;fill:#ffffff;fill-opacity:1;stroke-width:0.26458332"
+         id="tspan84597">OUR WORK</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:2.26370811px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#34454e;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="220.72612"
+       y="1569.8373"
+       id="text84638"><tspan
+         id="tspan84636"
+         sodipodi:role="line"
+         x="220.72612"
+         y="1569.8373"
+         style="font-size:3.35138893px;line-height:1.89999998;fill:#999999;fill-opacity:1;stroke-width:0.26458332">Oyster Marketing and Design Ltd</tspan><tspan
+         sodipodi:role="line"
+         x="220.72612"
+         y="1576.205"
+         style="font-size:3.35138893px;line-height:1.89999998;fill:#999999;fill-opacity:1;stroke-width:0.26458332"
+         id="tspan84649">12a North Street, Emsworth</tspan><tspan
+         sodipodi:role="line"
+         x="220.72612"
+         y="1582.5725"
+         style="font-size:3.35138893px;line-height:1.89999998;fill:#999999;fill-opacity:1;stroke-width:0.26458332"
+         id="tspan84651">Hampshire PO10 7DQ</tspan><tspan
+         sodipodi:role="line"
+         x="220.72612"
+         y="1586.7579"
+         style="font-size:3.35138893px;line-height:1.89999998;fill:#999999;fill-opacity:1;stroke-width:0.26458332"
+         id="tspan84653" /><tspan
+         sodipodi:role="line"
+         x="220.72612"
+         y="1589.5875"
+         style="font-size:3.35138893px;line-height:1.89999998;fill:#999999;fill-opacity:1;stroke-width:0.26458332"
+         id="tspan84655" /><tspan
+         sodipodi:role="line"
+         x="220.72612"
+         y="1594.5995"
+         style="font-size:3.35138893px;line-height:1.89999998;fill:#999999;fill-opacity:1;stroke-width:0.26458332"
+         id="tspan84657">+44 (0)1243 389713</tspan><tspan
+         sodipodi:role="line"
+         x="220.72612"
+         y="1600.9672"
+         style="font-size:3.35138893px;line-height:1.89999998;fill:#999999;fill-opacity:1;stroke-width:0.26458332"
+         id="tspan84659">hello@oysterdesign.co.uk</tspan><tspan
+         sodipodi:role="line"
+         x="220.72612"
+         y="1607.3347"
+         style="font-size:3.35138893px;line-height:1.89999998;fill:#999999;fill-opacity:1;stroke-width:0.26458332"
+         id="tspan84663"> </tspan><tspan
+         sodipodi:role="line"
+         x="220.72612"
+         y="1613.7024"
+         style="font-size:3.35138893px;line-height:1.89999998;fill:#999999;fill-opacity:1;stroke-width:0.26458332"
+         id="tspan84667">Proud to be an Emsworth business.</tspan></text>
+    <text
+       id="text84642"
+       y="1559.7812"
+       x="220.46895"
+       style="font-style:normal;font-weight:normal;font-size:1.59489608px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       xml:space="preserve"><tspan
+         id="tspan84640"
+         style="font-weight:bold;font-size:4.76249981px;line-height:1.75;fill:#ffffff;fill-opacity:1;stroke-width:0.26458332"
+         y="1559.7812"
+         x="220.46895"
+         sodipodi:role="line">CONNECT WITH US</tspan></text>
+    <text
+       id="text84062"
+       y="1641.1046"
+       x="7.5609632"
+       style="font-style:normal;font-weight:normal;font-size:2.26370811px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#34454e;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       xml:space="preserve"><tspan
+         id="tspan84060"
+         style="font-size:3.35138893px;line-height:1.89999998;fill:#999999;fill-opacity:1;stroke-width:0.26458332"
+         y="1641.1046"
+         x="7.5609632"
+         sodipodi:role="line">Website Design Chichester, Website Design Hampshire</tspan><tspan
+         style="font-size:3.35138893px;line-height:1.89999998;fill:#999999;fill-opacity:1;stroke-width:0.26458332"
+         y="1647.4723"
+         x="7.5609632"
+         sodipodi:role="line"
+         id="tspan84099">Developers of Plot One CRM - the Homebuilders and </tspan><tspan
+         style="font-size:3.35138893px;line-height:1.89999998;fill:#999999;fill-opacity:1;stroke-width:0.26458332"
+         y="1653.8398"
+         x="7.5609632"
+         sodipodi:role="line"
+         id="tspan84101">developers CRM system </tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:1.2168349px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#2ca7ca;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="7.3174438"
+       y="1624.8323"
+       id="text84066"><tspan
+         sodipodi:role="line"
+         x="7.3174438"
+         y="1624.8323"
+         style="font-weight:bold;font-size:3.63357568px;line-height:1.75;fill:#2ca7ca;fill-opacity:1;stroke-width:0.26458332"
+         id="tspan84064">BRIEF OYSTER</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:2.26370811px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#34454e;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="114.36026"
+       y="1609.675"
+       id="text84111"><tspan
+         sodipodi:role="line"
+         x="114.36026"
+         y="1609.675"
+         style="font-size:3.35138893px;line-height:1.89999998;fill:#999999;fill-opacity:1;stroke-width:0.26458332"
+         id="tspan84105">View our work for charities</tspan><tspan
+         sodipodi:role="line"
+         x="114.36026"
+         y="1616.0427"
+         style="font-size:3.35138893px;line-height:1.89999998;fill:#999999;fill-opacity:1;stroke-width:0.26458332"
+         id="tspan84119">View our work for schools</tspan><tspan
+         sodipodi:role="line"
+         x="114.36026"
+         y="1622.4103"
+         style="font-size:3.35138893px;line-height:1.89999998;fill:#999999;fill-opacity:1;stroke-width:0.26458332"
+         id="tspan84123">Charity web design</tspan><tspan
+         id="tspan84109"
+         sodipodi:role="line"
+         x="114.36026"
+         y="1628.778"
+         style="font-size:3.35138893px;line-height:1.89999998;fill:#999999;fill-opacity:1;stroke-width:0.26458332">School web design </tspan></text>
+    <text
+       id="text84115"
+       y="1599.2236"
+       x="114.38177"
+       style="font-style:normal;font-weight:normal;font-size:1.2168349px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#2ca7ca;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       xml:space="preserve"><tspan
+         id="tspan84113"
+         style="font-weight:bold;font-size:3.63357568px;line-height:1.75;fill:#2ca7ca;fill-opacity:1;stroke-width:0.26458332"
+         y="1599.2236"
+         x="114.38177"
+         sodipodi:role="line">VIEW ALL OUR WORK</tspan></text>
+    <use
+       id="use84407"
+       style="fill:#2ca7ca;fill-opacity:1;stroke:none"
+       xlink:href="#linkedin_cirlce"
+       transform="matrix(0.26458332,0,0,0.26458332,235.43465,1627.1602)"
+       x="0"
+       y="0"
+       width="100%"
+       height="100%" />
+    <use
+       id="use84445"
+       style="fill:#2ca7ca;fill-opacity:1;stroke:none"
+       xlink:href="#facebook"
+       transform="matrix(0.26458332,0,0,0.26458332,248.63384,1627.1602)"
+       x="0"
+       y="0"
+       width="100%"
+       height="100%" />
+    <use
+       id="use84483"
+       style="fill:#2ca7ca;fill-opacity:1;stroke:none"
+       xlink:href="#twitter"
+       transform="matrix(0.26458332,0,0,0.26458332,261.83304,1627.1602)"
+       x="0"
+       y="0"
+       width="100%"
+       height="100%" />
+    <use
+       id="use84508"
+       style="fill:#2ca7ca;fill-opacity:1;stroke:none"
+       xlink:href="#picasa"
+       transform="matrix(0.26458332,0,0,0.26458332,275.03232,1627.1602)"
+       x="0"
+       y="0"
+       width="100%"
+       height="100%" />
+    <use
+       id="use84685"
+       style="fill:#2ca7ca;fill-opacity:1;stroke:none;stroke-width:14.33159542"
+       xlink:href="#ic_place_24px"
+       transform="matrix(0.01846154,0,0,0.01846154,222.02373,1613.931)"
+       x="0"
+       y="0"
+       width="100%"
+       height="100%" />
+    <rect
+       style="display:inline;opacity:1;vector-effect:none;fill:#2b3941;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.79374993;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect84708"
+       width="309.5625"
+       height="22.489584"
+       x="-1.4621276e-05"
+       y="1676.1354" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:2.11666656px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#4e6774;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="7.4540715"
+       y="1688.3433"
+       id="text84717"><tspan
+         sodipodi:role="line"
+         id="tspan84715"
+         x="7.4540715"
+         y="1688.3433"
+         style="font-size:3.52777767px;fill:#4e6774;fill-opacity:1;stroke-width:0.26458332">© 2019 Oyster Marketing &amp; Design, Hampshire. All rights reserved.</tspan></text>
+    <use
+       id="use86266"
+       style="fill:#4e6774;fill-opacity:1;stroke:none;stroke-width:17.19791985"
+       xlink:href="#ic_person_24px"
+       transform="matrix(0.01538462,0,0,0.01538462,122.7016,1674.3138)"
+       x="0"
+       y="0"
+       width="100%"
+       height="100%" />
+    <text
+       id="text86280"
+       y="1688.3433"
+       x="128.63326"
+       style="font-style:normal;font-weight:normal;font-size:2.11666656px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#4e6774;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       xml:space="preserve"><tspan
+         style="font-size:3.52777767px;fill:#4e6774;fill-opacity:1;stroke-width:0.26458332"
+         y="1688.3433"
+         x="128.63326"
+         id="tspan86278"
+         sodipodi:role="line">Client Login</tspan></text>
+    <path
+       style="fill:none;stroke:#4e6774;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 513.46072,1683.6891 c 0,2.0863 0,4.1726 0,6.2589"
+       id="path86282"
+       inkscape:connector-curvature="0"
+       inkscape:path-effect="#path-effect86284"
+       inkscape:original-d="m 513.46072,1683.6891 v 6.2589"
+       transform="translate(-394.22937,0.56162841)" />
+    <path
+       style="display:inline;opacity:1;vector-effect:none;fill:#2ca7ca;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.79374999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       d="m 154.26139,1258.6661 v 5.2276 l -1.04802,-1.031 h -1.10897 l 2.67684,2.6345 2.67684,-2.6345 h -1.10897 l -1.04799,1.031 v -5.2276 z"
+       id="path86937"
+       inkscape:connector-curvature="0" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer4"
+     inkscape:label="nav"
+     style="display:inline">
+    <use
+       id="use86813"
+       style="display:inline;fill:#2ca7ca;fill-opacity:1;stroke:none;stroke-width:5.32734442"
+       xlink:href="#icon-arrow-up-alt1"
+       transform="matrix(0.04966515,0,0,0.04966515,270.87996,1633.7717)"
+       x="0"
+       y="0"
+       width="100%"
+       height="100%" />
+    <rect
+       transform="translate(1.2121276e-5)"
+       onmouseout=";InkWeb.setAtt({el:['text_contact'], att:'fontcolor', val:'black'})"
+       onmouseover=";InkWeb.setAtt({el:['text_contact'], att:'fontcolor', val:'RGB(44,167,202)'})"
+       y="11.121126"
+       x="269.95331"
+       height="4.8115759"
+       width="24.768272"
+       id="rect208689"
+       style="display:inline;opacity:1;vector-effect:none;fill:#2f5f9d;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.79375005;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+    <text
+       transform="translate(1.2121276e-5)"
+       id="text_contact"
+       y="14.96272"
+       x="272.36823"
+       style="font-style:normal;font-weight:400;font-size:0.60891104px;line-height:1.25;font-family:sans-serif;letter-spacing:0;word-spacing:0;display:inline;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       xml:space="preserve"
+       onmouseover=";InkWeb.setAtt({el:['text_contact'], att:'color', val:'blue'})"
+       onclick="window.location = &quot;oyster_contact.svg&quot;">          <tspan
+   style="font-weight:700;font-size:3.88055563px;fill:#ffffff;fill-opacity:1;stroke-width:0.26458332"
+   y="14.96272"
+   x="272.36823"
+   id="tspan928"
+   sodipodi:role="line">CONTACT</tspan>      </text>
+    <rect
+       transform="translate(1.2121276e-5)"
+       style="display:inline;opacity:1;vector-effect:none;fill:#2e5f9a;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.79374999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect208685"
+       width="4.8115759"
+       height="4.8115759"
+       x="299.46951"
+       y="11.121126"
+       onmouseover=";InkWeb.setAtt({el:['use208671'], att:'fill', val:'RGB(44,167,202)'});InkWeb.setAtt({el:['use208671'], att:'cursor', val:'pointer'})"
+       onmouseout=";InkWeb.setAtt({el:['use208671'], att:'fill', val:'white'})"
+       onclick="window.location = &quot;oyster_nav.svg&quot;" />
+    <use
+       id="use208671"
+       style="display:inline;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:12.34722424"
+       xlink:href="#menu"
+       transform="matrix(0.02142857,0,0,0.02142857,298.55858,-4.8994234)"
+       x="0"
+       y="0"
+       width="100%"
+       height="100%"
+       onmouseover=";InkWeb.setAtt({el:['use208671'], att:'fill', val:'RGB(44,167,202)'});InkWeb.setAtt({el:['use208671'], att:'cursor', val:'pointer'});InkWeb.setAtt({el:['rect208685'], att:'cursor', val:'pointer'})"
+       onmouseout=";InkWeb.setAtt({el:['use208671'], att:'fill', val:'white'})"
+       onclick="window.location = &quot;oyster_nav.svg&quot;" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer3"
+     inkscape:label="gallery"
+     style="display:inline"
+     transform="translate(1.2121276e-5)"
+     sodipodi:insensitive="true">
+    <g
+       id="g84837"
+       transform="matrix(0.465441,0,0,0.465441,-48.075411,312.61656)"
+       style="display:inline;stroke-width:2.14849997">
+      <image
+         sodipodi:absref="/media/an/M12/software_tutorial/inkscape/web/oyster/img/home/big1.png"
+         xlink:href="img/home/big1.png"
+         width="332.66943"
+         height="254"
+         preserveAspectRatio="none"
+         id="image84821"
+         x="103.29002"
+         y="443.22232"
+         style="stroke-width:2.14849997" />
+      <image
+         sodipodi:absref="/media/an/M12/software_tutorial/inkscape/web/oyster/img/home/big2.png"
+         xlink:href="img/home/big2.png"
+         style="stroke-width:2.14551616"
+         width="332.4256"
+         height="254"
+         preserveAspectRatio="none"
+         id="image84832"
+         x="435.95947"
+         y="443.22232" />
+    </g>
+    <g
+       id="g84937"
+       transform="matrix(0.62167909,0,0,0.62167909,20.734999,220.75393)"
+       style="stroke-width:1.60854697">
+      <image
+         sodipodi:absref="/media/an/M12/software_tutorial/inkscape/web/oyster/img/home/mid_wiggle.jpg"
+         xlink:href="img/home/mid_wiggle.jpg"
+         style="stroke-width:0.51473504"
+         width="165.89374"
+         height="97.895836"
+         preserveAspectRatio="none"
+         id="image84909"
+         x="132.8051"
+         y="669.76434" />
+      <image
+         sodipodi:absref="/media/an/M12/software_tutorial/inkscape/web/oyster/img/home/mid1.png"
+         xlink:href="img/home/mid1.png"
+         style="stroke-width:2.14472938"
+         width="166.15831"
+         height="97.895836"
+         preserveAspectRatio="none"
+         id="image84920"
+         x="-33.353218"
+         y="669.76434" />
+      <image
+         sodipodi:absref="/media/an/M12/software_tutorial/inkscape/web/oyster/img/home/mid3.png"
+         xlink:href="img/home/mid3.png"
+         style="stroke-width:2.14472938"
+         width="165.89374"
+         height="97.895836"
+         preserveAspectRatio="none"
+         id="image84931"
+         x="298.69885"
+         y="669.76434" />
+    </g>
+    <g
+       id="g83950"
+       transform="matrix(0.55784487,0,0,0.55784487,87.578453,373.27999)"
+       style="stroke-width:1.79261303">
+      <image
+         sodipodi:absref="/media/an/M12/software_tutorial/inkscape/web/oyster/img/home/big3.png"
+         xlink:href="img/home/big3.png"
+         y="582.08337"
+         x="-156.99428"
+         id="image83934"
+         preserveAspectRatio="none"
+         height="211.66667"
+         width="277.61008"
+         style="stroke-width:2.14814806" />
+      <image
+         sodipodi:absref="/media/an/M12/software_tutorial/inkscape/web/oyster/img/home/big4.png"
+         xlink:href="img/home/big4.png"
+         y="582.08337"
+         x="120.6158"
+         id="image83945"
+         preserveAspectRatio="none"
+         height="211.66667"
+         width="277.3157"
+         style="stroke-width:2.14814806" />
+    </g>
+    <g
+       id="g84287"
+       transform="matrix(0.66857145,0,0,0.66857145,18.667349,276.51431)"
+       style="display:inline;stroke-width:1.49572647">
+      <image
+         sodipodi:absref="/media/an/M12/software_tutorial/inkscape/web/oyster/img/home/50047053.jpg"
+         xlink:href="img/home/50047053.jpg"
+         width="92.604164"
+         height="92.604164"
+         preserveAspectRatio="none"
+         id="image84173"
+         x="342.49539"
+         y="1157.515"
+         style="stroke-width:1.49572647" />
+      <image
+         sodipodi:absref="/media/an/M12/software_tutorial/inkscape/web/oyster/img/home/50533025.jpg"
+         xlink:href="img/home/50533025.jpg"
+         width="92.604164"
+         height="92.604164"
+         preserveAspectRatio="none"
+         id="image84184"
+         x="249.89122"
+         y="1157.515"
+         style="stroke-width:1.49572647" />
+      <image
+         sodipodi:absref="/media/an/M12/software_tutorial/inkscape/web/oyster/img/home/53302408.jpg"
+         xlink:href="img/home/53302408.jpg"
+         width="92.604164"
+         height="92.604164"
+         preserveAspectRatio="none"
+         id="image84195"
+         x="-27.921253"
+         y="1157.515"
+         style="stroke-width:1.49572647" />
+      <image
+         sodipodi:absref="/media/an/M12/software_tutorial/inkscape/web/oyster/img/home/53431933.jpg"
+         xlink:href="img/home/53431933.jpg"
+         width="92.604164"
+         height="92.604164"
+         preserveAspectRatio="none"
+         id="image84206"
+         x="64.682907"
+         y="1157.515"
+         style="stroke-width:1.49572647" />
+      <image
+         sodipodi:absref="/media/an/M12/software_tutorial/inkscape/web/oyster/img/home/54247346.jpg"
+         xlink:href="img/home/54247346.jpg"
+         width="92.604164"
+         height="92.604164"
+         preserveAspectRatio="none"
+         id="image84228"
+         x="157.28706"
+         y="1157.515"
+         style="stroke-width:1.49572647" />
+    </g>
+    <g
+       id="g84280"
+       transform="matrix(0.66857143,0,0,0.66857143,-1.9162564e-6,320.11831)"
+       style="display:inline;stroke-width:1.49572647">
+      <image
+         sodipodi:absref="/media/an/M12/software_tutorial/inkscape/web/oyster/img/home/53833866.jpg"
+         xlink:href="img/home/53833866.jpg"
+         width="92.604164"
+         height="92.604164"
+         preserveAspectRatio="none"
+         id="image84217"
+         x="370.41666"
+         y="999.69122"
+         style="stroke-width:1.49572647" />
+      <image
+         sodipodi:absref="/media/an/M12/software_tutorial/inkscape/web/oyster/img/home/54463735.jpg"
+         xlink:href="img/home/54463735.jpg"
+         width="92.604164"
+         height="92.604164"
+         preserveAspectRatio="none"
+         id="image84239"
+         x="185.20833"
+         y="999.69122"
+         style="stroke-width:1.49572647" />
+      <image
+         sodipodi:absref="/media/an/M12/software_tutorial/inkscape/web/oyster/img/home/54513804.jpg"
+         xlink:href="img/home/54513804.jpg"
+         width="92.604164"
+         height="92.604164"
+         preserveAspectRatio="none"
+         id="image84250"
+         x="277.8125"
+         y="999.69122"
+         style="stroke-width:1.49572647" />
+      <image
+         sodipodi:absref="/media/an/M12/software_tutorial/inkscape/web/oyster/img/home/57024196.jpg"
+         xlink:href="img/home/57024196.jpg"
+         width="92.604164"
+         height="92.604164"
+         preserveAspectRatio="none"
+         id="image84261"
+         x="92.604164"
+         y="999.69122"
+         style="stroke-width:1.49572647" />
+      <image
+         sodipodi:absref="/media/an/M12/software_tutorial/inkscape/web/oyster/img/home/59403202.jpg"
+         xlink:href="img/home/59403202.jpg"
+         width="92.604164"
+         height="92.604164"
+         preserveAspectRatio="none"
+         id="image84272"
+         x="-2.3485491e-06"
+         y="999.69122"
+         style="stroke-width:1.49572647" />
+    </g>
+    <image
+       sodipodi:absref="/media/an/M12/software_tutorial/inkscape/web/oyster/img/home/Blog-Banner.jpg"
+       xlink:href="img/home/Blog-Banner.jpg"
+       y="1292.545"
+       x="4.4043823e-06"
+       id="image84353"
+       preserveAspectRatio="none"
+       height="97.895828"
+       width="97.895828" />
+    <image
+       sodipodi:absref="/media/an/M12/software_tutorial/inkscape/web/oyster/img/home/NWN-Journal_2_1.jpg"
+       xlink:href="img/home/NWN-Journal_2_1.jpg"
+       y="1292.545"
+       x="211.66667"
+       id="image84364"
+       preserveAspectRatio="none"
+       height="97.895828"
+       width="97.895828" />
+    <image
+       sodipodi:absref="/media/an/M12/software_tutorial/inkscape/web/oyster/img/home/Banner Image.jpg"
+       xlink:href="img/home/Banner Image.jpg"
+       y="1292.545"
+       x="105.83332"
+       id="image84375"
+       preserveAspectRatio="none"
+       height="97.895828"
+       width="97.895828" />
+  </g>
+</svg>
